@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+	<head>
+		<!-- courage -->
+		<title>Wikimedia Foundation 2013 - 2014 Annual Report</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta property="og:title" content="Wikimedia Foundation 2013 - 2014 Annual Report" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://annual.wikimedia.org/2014/" />
+		<meta property="og:image" content="https://annual.wikimedia.org/2014/images/backgrounds/graduation.jpg" />
+		<meta property="og:description" content="We believe that knowledge is a foundation. It is a foundation for human potential, a foundation for freedom, a foundation for opportunity." />
+		<meta name="application-name" content="&nbsp;" />
+		<meta name="msapplication-TileColor" content="#FFFFFF" />
+		<meta name="msapplication-TileImage" content="images/fi/mstile-144x144.png" />
+		<meta name="msapplication-square70x70logo" content="images/fi/mstile-70x70.png" />
+		<meta name="msapplication-square150x150logo" content="images/fi/mstile-150x150.png" />
+		<meta name="msapplication-wide310x150logo" content="images/fi/mstile-310x150.png" />
+		<meta name="msapplication-square310x310logo" content="images/fi/mstile-310x310.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/fi/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/fi/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/fi/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/fi/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/fi/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/fi/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/fi/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/fi/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="images/fi/favicon-196x196.png" sizes="196x196" />
+		<link rel="icon" type="image/png" href="images/fi/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="images/fi/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="images/fi/favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="images/fi/favicon-128.png" sizes="128x128" />
+		<link rel="stylesheet" type="text/css" href="style/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link rel="stylesheet" type="text/css" href="style/tipsy.css" />
+		<link rel="stylesheet" type="text/css" href="style/magnific-popup.css" />
+		<script type="text/javascript" src="libs/jquery.min.js"></script>
+		<script type="text/javascript" src="libs/jquery.transit.min.js"></script>
+		<script type="text/javascript" src="libs/jquery.tipsy.js"></script>
+		<script type="text/javascript" src="libs/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="libs/waypoints.js"></script>
+		<script type="text/javascript" src="https://tools.wmflabs.org/wmcounter/wmcounter.data.js"></script>
+		<script type="text/javascript" src="libs/wmcounter.js"></script>
+
+		<script>
+			$(document).ready( function() {
+				// I'm going to try to be helpful with my comments so
+				// that those of you taking this apart at home won't be perplexed.
+
+				// IE doesn't have a console unless the console is open so
+				// debug calls create errors.  This prevents that.
+				// In production, you shouldn't have any debug lines that will fire
+				// but it's still good practice to account for.
+				if(!window.console) { console={}; console.log = function(){}; }
+
+				// Detect retina.
+				// HD displays have more physical pixels per logical pixel.
+				// This applies a global css class so that we can adjust if we
+				// need to.
+				if (window.devicePixelRatio > 1) { $('body').addClass('retina'); }
+
+				// I like to use transition.js over standard jQuery animate calls.
+				// This will delegate .transition() calls to .animate() if the browser
+				// can't do the right CSS transitions.
+				if (!$.support.transition) { $.fn.transition = $.fn.animate; }
+
+				// These next bits attach lightbox/popup events to things.
+				// We are using magnific popup because it's flexible.
+
+				// Lightbox our videos.
+				$('.video-popup').magnificPopup({
+					disableOn: 700,
+					type: 'iframe',
+					mainClass: 'mfp-fade',
+					removalDelay: 160,
+					preloader: false,
+					fixedContentPos: false
+				});
+				// Edit counter explanation.
+				$('.popup-modal').magnificPopup({
+					type: 'inline',
+					preloader: false
+				});
+
+				// When someone clicks one of the navigation links,
+				// we want it to be a little smoother than an instant
+				// snap.  Some people like this, others hate it.
+				$('a[href*=#]').click(function(e) {
+					e.preventDefault();
+					var hash = this.hash;
+					var target = $(this.hash);
+					if (target.offset() != null) {
+						var loc = target.offset().top - 60;
+						$('html, body').stop().animate({
+							'scrollTop': loc
+						}, 900, 'swing', function () {
+							window.location.hash = hash;
+						});
+					} else {
+						window.location = this;
+					}
+				});
+
+				// Activate citation tooltips.
+				// We're using tipsy here, and breaking our html purity, but
+				// there isn't a lot of time.
+				$('.tip').tipsy({gravity: 's', opacity: 1, html: true, delayOut: 1000 });
+
+				// This fades in the people stories as they go.
+				// This doesn't happen in reverse (they don't fade out and then
+				// back in) because we'd end up having too many waypoints.
+				$('.peoplestory').waypoint(function(direction) {
+					$(this).transition({ opacity: 1 }, 1000, 'linear');
+				}, { offset: '80%' });
+
+				// Point out which section we're on in globalnav.
+				$('.section').waypoint(function(direction) {
+					var s = $(this);
+					var myID = parseInt(s.attr('section'));
+					$('#navigation ul li a').removeClass('current');
+					if (direction == 'up') {
+						$('#anchor-' + (myID -1)).addClass('current');
+					} else {
+						$('#anchor-' + myID).addClass('current');
+					}
+				}, { offset: '50%' });
+
+				// Mobile navigation stuff
+				// For speed, there's actually two navigation menus but
+				// only one is visible at any given time.  We still need to apply
+				// interaction logic to the mobile menu, even if it's not present.
+				$('#navmaster').click(function() {
+					$('#mobilechild').slideToggle();
+				});
+				$('body').click( function(e) {
+					if ( ! $( e.target ).is('#mobilenav, #navmaster, #navmaster *' ) ) {
+						$('#mobilechild').fadeOut('fast');
+					}
+				} );
+			});
+		</script>
+	</head>
+	<body class="loading">
+		<div id="navigation">
+			<div class="container">
+				<a id="wmfbug" target="_new" href="#s-1"><img src="images/icons/icon_wmf.png" srcset="images/icons/icon_wmf@2x.png 2x" height="40" /></a>
+				<ul id="mobilenav">
+					<li><a id="navmaster">Navigation</a>
+						<ul id="mobilechild">
+							<li><a href="#s-1">Knowledge</a></li>
+							<li><a href="#s-2">Wikipedia</a></li>
+							<li><a href="#s-3">People</a></li>
+							<li><a href="#s-4">The Wikimedia Foundation</a></li>
+							<li><a href="#s-5">Contributions</a></li>
+							<li><a href="#s-6">Financials</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul id="nav">
+					<li><a id="anchor-1" href="#s-1">Knowledge</a></li>
+					<li><a id="anchor-2" href="#s-2">Wikipedia</a></li>
+					<li><a id="anchor-3" href="#s-3">People</a></li>
+					<li><a id="anchor-4" href="#s-4">The Wikimedia Foundation</a></li>
+					<li><a id="anchor-5" href="#s-5">Contributions</a></li>
+					<li><a id="anchor-6" href="#s-6">Financials</a></li>
+					<li class="droplink" style="margin-left: 50px"><a class="popup-modal" href="#lwpmaster">Listen</a></li>
+					<li class="droplink"><a target="_new" href="//donate.wikimedia.org/">Give</a></li>
+				</ul>
+				<div id="smedia">
+					<a target="_new" href="//twitter.com/home/?status=People do amazing things with Wikipedia. Read the 2014 Wikimedia Foundation Annual Report to learn more: https://annual.wikimedia.org/"><img src="images/icons/icon_twitter.png" srcset="images/icons/icon_twitter@2x.png 2x" height="25" /></a>
+					<a target="_new" href="//www.facebook.com/share.php?u=https://annual.wikimedia.org/"><img src="images/icons/icon_facebook.png" srcset="images/icons/icon_facebook@2x.png 2x" height="25" /></a>
+					<a href="mailto:?subject=Wikimedia Foundation annual report&amp;body=People do amazing things with Wikipedia. Read the 2014 Wikimedia Foundation Annual Report to learn more: https://annual.wikimedia.org/" title="Share by Email"><img src="images/icons/icon_mail.png" srcset="images/icons/icon_mail@2x.png 2x" height="25" /></a>
+					<div id="lwpmaster" class="mfp-hide">
+						<div id="lwpinfo">
+							<p>Listen to the sound of Wikipedia's recent changes feed. Bells indicate additions and string plucks indicate subtractions. Pitch changes according to the size of the edit; the larger the edit, the deeper the note. Green circles show edits from unregistered contributors and purple circles mark edits performed by automated bots.</p>
+							<p><a target="_new" href="http://listen.hatnote.com/">Listen to Wikipedia homepage</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="master">
+			<section class="module parallax graduation">
+				<div class="container">
+					<a id="s-1" name="s-1"></a>
+					<div class="section" id="section-1" section="1"></div>
+					<div class="backer">
+						<h1>Knowledge is a foundation</h1>
+					</div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">We believe that knowledge is a foundation. It is a foundation for human potential, a foundation for freedom, a foundation for opportunity.</p>
+					<div class="col_half lc">
+						<p>Imagine a world in which every single human being can freely share in the sum of all knowledge. <b>That's our commitment.</b></p>
+						<p>Knowledge is powerful. A country or community that has better access to knowledge is more likely to be healthy, more likely to be free, more likely to be happy.<a class="tip" target="_new" href="http://www.lyondeclaration.org/" title="<a target='_new' href='http://www.lyondeclaration.org/'>The Lyon Declaration</a>">[1]</a><a target="_new" href="http://unsdsn.org/wp-content/uploads/2014/02/WorldHappinessReport2013_online.pdf" class="tip" title="<a target='_new' href='http://unsdsn.org/wp-content/uploads/2014/02/WorldHappinessReport2013_online.pdf'>World Happiness Report 2013</a>">[2]</a> Unfortunately, access to knowledge is not equal. In some places, people cannot afford to access it, in others, it is censored or constrained.</p>
+					</div>
+					<div class="col_half rc">
+						<div class="qbox highlighted" style="margin-top:0px">
+							<div class="quote">"Knowledge is power. Information is liberating. Education is the premise of progress, in every society, in every family."</div>
+							<div class="signature">&mdash; Kofi Annan</div>
+						</div>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content divider f_1_2">
+				<div class="container">
+					<p class="primary">The students of Sinenjongo High School know how powerful a foundation of knowledge is for their future. </p>
+					<div class="col_half lc">
+						<p><a target="_new" href="https://en.wikipedia.org/wiki/Sinenjongo_High_School">Sinenjongo High School</a> is located in <a target="_new" href="https://en.wikipedia.org/wiki/Joe_Slovo_Park">Joe Slovo Park</a>, a small township on the fringes of <a target="_new" href="https://en.wikipedia.org/wiki/Cape_Town">Cape Town</a>, South Africa. The high school does not have a library, so students must find other ways to access knowledge in order to complete their assignments and study for university entrance exams.</p>
+
+						<p>In 2013, Sinenjongo's Grade 12 students wrote an open letter to South Africa's mobile providers, asking for free access to Wikipedia on their mobile phones. They wanted to remove all barriers to their education. <b>They wanted to hold the world in their hands.</b></p>
+					</div>
+					<div class="col_half rc">
+						<a class="video-popup" href="https://www.youtube.com/watch?v=gwWzuHPoq7E"><img src="images/vthumbs/sinenjongo.jpg" srcset="images/vthumbs/sinenjongo@2x.jpg 2x" width="100%" alt="Open video about Sinenjongo High School" /></a>
+						<p><i>A few months later mobile network operator MTN South Africa announced they would make Wikipedia available for free for their 20 million users in partnership with the Wikimedia Foundation.</i><a target="_new" href="http://blog.wikimedia.org/2014/03/18/mtn-south-africa-responds-to-sinenjongo-high-school-open-letter-and-launches-wikipedia-zero/" class="tip" title="<a href='http://blog.wikimedia.org/2014/03/18/mtn-south-africa-responds-to-sinenjongo-high-school-open-letter-and-launches-wikipedia-zero/'>MTN South Africa responds</a>">[3]</a></p>
+					</div>
+					<div style="clear:both; margin-bottom:30px"></div>
+					<p class="primary">We believe everyone should have access to all knowledge  &mdash; for free, without restriction, without limitation. It is a foundation for a brighter future.</p>
+				</div>
+			</section>
+			<section class="module parallax orion">
+				<div class="container">
+					<a id="s-2" name="s-2"></a>
+					<div class="section" id="section-2" section="2"></div>
+					<div class="backer">
+						<h1>Wikipedia is a foundation of knowledge</h1>
+					</div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">Go on &mdash; explore the outer limits of Wikipedia. Wikipedia is always expanding and never finished. If you don't discover what you're looking for, you can start creating it yourself.</p>
+
+					<div class="col_half rc">
+						<a class="video-popup" href="http://www.youtube.com/watch?v=ci0Pihl2zXY"><img src="images/vthumbs/yearinreview.jpg" srcset="images/vthumbs/yearinreview@2x.jpg 2x" width="100%" alt="Open video about Wikipedia's year in review" /></a>
+						<br />
+						<br />
+						<div class="infographic">
+							<p>Wikipedia has more than <span class="callout">33 million</span> articles in <span class="callout">288</span> languages</p>
+						</div>
+					</div>
+					<div class="col_half lc">
+						<p>Wikipedia is the largest source of shared knowledge in human history. It is a living record of discovery, history, and innovation. It is a knowledge engine for the planet, sharing freely licensed content around the world.</p>
+
+						<p>Nearly <span class="callout">half a billion</span> people turn to Wikipedia every month for everything from preserving cultural heritage, to improving cancer detection, to researching homework. <b>They come to learn. They stay and discover.</b></p>
+
+						<div class="qbox">
+							<div class="quote">"<span class="callout">64%</span> of British people trust Wikipedia entries more than they trust BBC News."<a target="_new" href="https://yougov.co.uk/news/2014/08/09/more-british-people-trust-wikipedia-trust-news/" class="tip" title="<a href='https://yougov.co.uk/news/2014/08/09/more-british-people-trust-wikipedia-trust-news/'>British people trust Wikipedia more than the news</a>">[4]</a></div>
+						</div>
+						<p>Over the course of a year, Wikipedia is edited and read by people on every continent in the world &mdash; yes, including <a target="_new" href="https://en.wikipedia.org/wiki/Antarctica">Antarctica</a>!<a target="_new" href="https://blog.wikimedia.org/2014/10/10/hans-oleander-offline-wikipedia-guide-tours-bottom-earth/" class="tip" title="<a href='https://blog.wikimedia.org/2014/10/10/hans-oleander-offline-wikipedia-guide-tours-bottom-earth/'>Using offline Wikipedia to guide tours at the bottom of the Earth</a>">[5]</a></p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content divider f_2_3">
+				<div class="container">
+					<p class="primary">Editors and readers &mdash; ordinary people &mdash; do incredible things with this knowledge. In the United States, a teenager named <a target="_new" href="https://en.wikipedia.org/wiki/Jack_Andraka">Jack Andraka</a> invented a test that might be used to detect certain cancers using information he found on Wikipedia.<a target="_new" href="http://blog.wikimedia.org/2015/01/16/high-school-student-cancer-test/" class="tip" title="<a href='http://blog.wikimedia.org/2015/01/16/high-school-student-cancer-test/'>How high school student Jack Andraka used Wikipedia to research a new test for cancer</a>">[6]</a></p>
+
+					<div class="col_half lc">
+						<img src="images/people/Jack.png" srcset="images/people/Jack@2x.png 2x" width="100%" alt="Photo of Jack Andraka" />
+					</div>
+					<div class="col_half rc">
+						<p>When Jack was 13, a close family friend passed away from <a target="_new" href="https://en.wikipedia.org/wiki/Pancreatic_cancer">pancreatic cancer</a>, a deadly disease that progresses quickly and quietly.</p>
+
+						<div class="qbox">
+							<div class="quote">"I discovered through Wikipedia articles that 85 percent of all pancreatic cancers are diagnosed late, when someone has less than a 2 percent chance of survival, and the current test is this 60-year-old technique that is incredibly outdated, but also incredibly expensive (800 USD per test), missing 30 percent of all cancers. I knew had to do something."</div>
+						</div>
+
+						<p>As a high school student, Jack couldn't afford access to costly academic journals. Instead, he turned to Wikipedia, researching <a target="_new" href="https://en.wikipedia.org/wiki/Carbon_nanotube">carbon nanotubes</a> and <a target="_new" href="https://en.wikipedia.org/wiki/Biochemistry">biochemistry</a>.</p>
+					</div>
+					<div style="clear:both; margin-bottom:30px"></div>
+					<p class="primary">With knowledge from Wikipedia and free online science journals, Jack developed a prototype for a potential breakthrough method of cancer screening before his 17th birthday.</p>
+				</div>
+			</section>
+			<section class="module parallax wikimania">
+				<div class="container">
+					<a id="s-3" name="s-3"></a>
+					<div class="section" id="section-3" section="3"></div>
+					<div class="backer">
+						<h1>People are the foundation of Wikipedia</h1>
+					</div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+
+					<p class="primary">Wikipedia is written by all of us. The articles, words, pictures, and data are created by a diverse community of people who volunteer to share knowledge with the world.</p>
+					<div class="col_half lc">
+						<p>Wikipedians are students, librarians, musicians, lawyers, scientists, scholars, photographers, mathematicians, engineers, retirees, parents, children, advocates, artists, and explorers &mdash; among many other things.</p>
+
+						<p>We write articles, take photographs, answer questions, and teach new people how to contribute.</p>
+					</div>
+					<div class="col_half rc">
+						<div class="infographic">
+							<p><span class="callout">75,000 writers</span> and editors wrote more than <span class="callout">4.5 million</span> new articles this year &mdash; and improved countless more</p>
+						</div>
+					</div>
+					<div style="clear:both"></div>
+					<p class="primary">In January of 2014, more than <span class="callout">6,000</span> new articles were created each day on Wikipedia's <span class="callout">288</span> different language versions. <span class="callout">84,750</span> people made more than five edits to Wikipedia in that same time &mdash; and many more have stopped by to fix a typo or update a statistic.  Each gave their time and their passion to share what they know.</p>
+
+				</div>
+			</section>
+			<section class="module parallax editcounter">
+				<div class="container">
+					<h1 id="counter">&nbsp;</h1>
+					<p id="explaincounter">The edit counter is a live count of all edits across all databases in Wikimedia's servers.</p>
+					<a id="editcounterhow" class="popup-modal" href="#editcounterinfo">How does it work?</a><br>
+					<div id="editcounterinfo" class="mfp-hide">
+						<p>The edit counter is a live count of all edits across all databases in Wikimedia’s servers.</p>
+
+						<p>How does it work? Every five minutes or so, the system queries the databases in the Wikimedia cluster for the sum total of all edits on the Wikimedia projects, and updates this number in a cache. This version queries that cached number of edits using a custom script. It picks a number smaller than the total cached number, displays that, and starts counting upward.</p>
+
+						<p>Every few minutes it checks for a new, updated total count. If the live counter has gotten ahead of itself, and the latest cached number is smaller than the script's current count, it jumps back to that; otherwise it keeps counting. The number usually runs about 3 to 5 minutes behind the actual total number of edits on all the Wikimedia projects.</p>
+						<p><a target="_new" href="http://tools.wmflabs.org/wmcounter/">Edit Counter homepage</a></p>
+					</div>
+				</div>
+			</section>
+			<section class="module content f_3_2">
+				<div class="container">
+					<p class="primary">Over any given three months, people make edits to Wikipedia from more than <span class="callout">170</span> different countries, from <a target="_new" href="https://en.wikipedia.org/wiki/Andorra">Andorra</a> (a landlocked European microstate) to <a target="_new" href="https://en.wikipedia.org/wiki/Zimbabwe">Zimbabwe</a> (with 16 official languages).</p>
+					<p class="primary">Everyone is a potential Wikipedian. All it requires is a belief in our shared vision &mdash; a world in which every single human being can freely share in the sum of all knowledge.</p>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">Meet some members of our community:</p>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half lc">
+						<img src="images/people/Netha.png" srcset="images/people/Netha@2x.png 2x" width="100%" alt="Photo of Netha Hussain" />
+					</div>
+					<div class="col_half rc">
+						<p><b>Dr. Netha Hussain</b> is a surgical resident in <a target="_new" href="https://en.wikipedia.org/wiki/Kerala">Kerala</a>, India. There are few encyclopedias in <a target="_new" href="https://en.wikipedia.org/wiki/Malayalam">Malayalam</a>, her native language. She found Wikipedia, including Malayalam Wikipedia, powerful and inspiring. She began returning from lectures and and checking her notes against articles &mdash; improving quality and depth on subjects such as <a target="_new" href="https://en.wikipedia.org/wiki/Microbiology">microbiology<a>, <a target="_new" href="https://en.wikipedia.org/wiki/Pathology">pathology</a>, <a target="_new" href="https://en.wikipedia.org/wiki/Pharmacology">pharmacology</a> and forensic medicine. She considers contributing to Wikipedia a part of her mission as a medical professional &mdash; helping empower people with knowledge.</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half rc">
+						<img src="images/people/Jacek.png" srcset="images/people/Jacek@2x.png 2x" width="100%" alt="Cropped photo of an auto-portrait of Jacek Halicki" />
+					</div>
+					<div class="col_half lc">
+						<p><b>Jacek Halicki</b> first discovered the <a target="_new" href="https://en.wikipedia.org/wiki/Wiki_Loves_Monuments">Wiki Loves Monuments</a><a target="_new" href="http://www.wikilovesmonuments.org/" class="tip" title="<a href='http://www.wikilovesmonuments.org/'>Wiki Loves Monuments</a>">[7]</a> photo contest through a banner located on top of the main page of the Polish Wikipedia<a target="_new" href="" class="tip" title="<a href='http://blog.wikimedia.org/2014/05/08/there-are-no-barriers-to-free-knowledge/'>There are no barriers to free knowledge</a>">[8]</a>. It was the first time he ever realized he could actually <i>edit</i> Wikipedia, and it quickly became a passion. As a former <a target="_new" href="https://en.wikipedia.org/wiki/Photojournalism">photojournalist</a>, amateur radio operator, <a target="_new" href="https://en.wikipedia.org/wiki/Jazz">jazz</a> lover, and pensioner with severe mobility impairment, Wikipedia was a way for Jacek to explore the world, contribute his photographic talents, and overcome the barriers in his life.</p>
+
+						<div class="qbox">
+							<div class="quote">"It is a great use of my free time to the benefit of others and also a way to prove to myself and others that illness does not mean idleness, apathy and depression... I'm glad I'll leave something good behind when I'm gone from this world. I'm glad that my pictures will live on and perhaps, will be useful to people."</div>
+							<div class="signature">&mdash; Jacek Halicki, Poland</div>
+						</div>
+
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half lc">
+						<img src="images/people/Dumisani.png" srcset="images/people/Dumisani@2x.png 2x" width="100%" alt="Photo of Dumisani Ndubane" />
+					</div>
+					<div class="col_half rc">
+						<p><b>Dumisani Ndubane</b> comes from a family of modest means.<a target="_new" href="http://blog.wikimedia.org/2012/12/04/the-impact-of-wikipedia-dumisani-ndubane/" class="tip" title="<a href='http://blog.wikimedia.org/2012/12/04/the-impact-of-wikipedia-dumisani-ndubane/'>The impact of Wikipedia</a>">[9]</a> When he was accepted to study electrical engineering at a university in <a target="_new" href="https://en.wikipedia.org/wiki/Johannesburg">Johannesburg</a>, he found his educational grant did not cover food or housing, and was ultimately compelled to suspend his education. He discovered the free curriculum on <a target="_new" href="https://en.wikipedia.org/wiki/Wikiversity">Wikiversity</a> and continued his studies as a companion to pursuing online accreditation at the <a target="_new" href="https://en.wikipedia.org/wiki/University_of_South_Africa">University of South Africa</a>. He received his degree and joined a firm, where he now mentors young engineers and contributes learning modules of his own to teach others.</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half rc">
+						<img src="images/people/Adrianne.png" srcset="images/people/Adrianne@2x.png 2x" width="100%" alt="Photo of Adrianne Wadewitz" />
+					</div>
+					<div class="col_half lc">
+						<p><a target="_new" href="https://en.wikipedia.org/wiki/Adrianne_Wadewitz"><b>Dr. Adrianne Wadewitz</b></a> was an early and prolific contributor to Wikipedia, but it took a while before she felt she could admit that to fellow scholars.<a target="_new" href="http://blog.wikimedia.org/2014/04/10/remembering-adrianne-wadewitz/" class="tip" title="<a href='http://blog.wikimedia.org/2014/04/10/remembering-adrianne-wadewitz/'>Remembering Adrianne Wadewitz</a>">[10]</a> Eventually, Dr. Wadewitz, a scholar of 18th century English literature, went public with her passion, becoming one of Wikipedia's first Campus Ambassadors. She consulted with professors, taught students to contribute, and advocated for better representation of women among editors and article subjects. She passed away in a rock climbing accident but her work lives on, helping university professors throughout the world use Wikipedia as a teaching tool.<a target="_new" href="http://www.nytimes.com/interactive/2014/12/25/magazine/2014-the-lives-they-lived.html" class="tip" title="<a href='http://www.nytimes.com/interactive/2014/12/25/magazine/2014-the-lives-they-lived.html'>The Lives They Lived</a>">[11]</a></p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half lc">
+						<img src="images/people/Ihor.png" srcset="images/people/Ihor.png 2x" width="100%" alt="Photo of Ihor Kostenko" />
+					</div>
+					<div class="col_half rc">
+						<p><b>Ihor Kostenko</b> was an active contributor to the Ukrainian Wikipedia, writing under the username <a target="_new" href="https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D0%B8%D1%81%D1%82%D1%83%D0%B2%D0%B0%D1%87:Ig2000">Ig2000</a><a target="_new" href="http://blog.wikimedia.org/2014/02/24/wikipedia-ihor-kostenko-dies/" class="tip" title="<a href='http://blog.wikimedia.org/2014/02/24/wikipedia-ihor-kostenko-dies/'>Wikipedian Ihor Kostenko dies on the Maidan</a>">[12]</a>. Ihor registered an account on July 23, 2011, and began writing his first articles right away. In just two and a half years, he wrote more 280 articles and made more than 1,600 edits, becoming a passionate advocate for increasing contributors to Ukrainian Wikipedia. In February 20, 2014, during the <a target="_new" href="https://en.wikipedia.org/wiki/2014_Ukrainian_revolution">protests</a> in <a target="_new" href="https://en.wikipedia.org/wiki/Kiev">Kiev</a>, Ihor &mdash; an active Wikipedia contributor, journalist, and geography student &mdash; died tragically after being shot on the <a target="_new" href="https://en.wikipedia.org/wiki/Euromaidan">Euromaidan</a>.</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half rc">
+						<img src="images/people/Dorothy.png" srcset="images/people/Dorothy@2x.png 2x" width="100%" alt="Photo of Dorothy Howard" />
+					</div>
+					<div class="col_half lc">
+						<p><b>Dorothy Howard</b> is a Wikipedian-in-Residence at the <a target="_new" href="https://en.wikipedia.org/wiki/Metropolitan_New_York_Library_Council">Metropolitan New York Library Council</a>, where she works to build relationships with galleries, archives, libraries, and museums around New York City.<a target="_new" href="http://blog.wikimedia.org/2013/11/15/wikipedian-in-residence/" class="tip" title="<a href='http://blog.wikimedia.org/2013/11/15/wikipedian-in-residence/'>On Consortium-Based Wikipedian in Residence Positions</a>">[13]</a> She is also one of the originators of <a target="_new" href="https://en.wikipedia.org/wiki/Wikipedia:Meetup/ArtAndFeminism">Art+Feminism</a>, a global editing project to improve coverage of women, feminism, and the arts on Wikipedia. For their efforts, Dorothy and her fellow collaborators were recognized as among <i>Foreign Policy's</i> 100 Leading Global Thinkers for 2014.<a target="_new" href="http://globalthinkers.foreignpolicy.com/#chroniclers/detail/evans-mabey-mandiberg-ptak-howard-knipel" class="tip" title="<a href='http://globalthinkers.foreignpolicy.com/#chroniclers/detail/evans-mabey-mandiberg-ptak-howard-knipel'>Global Thinkers</a>">[14]</a> The Wikimedia Foundation is funding Art+Feminism with a grant to expand and grow their networks.</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half lc">
+						<img src="images/people/Ram_Prasad.png" srcset="images/people/Ram_Prasad@2x.png 2x" width="100%" alt="Photo of Ram Prasad Joshi" />
+					</div>
+					<div class="col_half rc">
+						<p><b>Ram Prasad Joshi</b> doesn't have a computer and his village has no electricity.<a target="_new" href="http://blog.wikimedia.org/2014/06/24/writing-wikipedia-from-the-western-hills-of-nepal/" class="tip" title="<a href='http://blog.wikimedia.org/2014/06/24/writing-wikipedia-from-the-western-hills-of-nepal/'>Writing Wikipedia from the western hills of Nepal</a>">[15]</a> It's a three-hour walk to the nearest road. Despite this, Ram Prasad has made more than 6,000 edits to the <a target="_new" href="https://en.wikipedia.org/wiki/Nepal">Nepali</a> Wikipedia using nothing more than a simple phone, which he carries with him always. He also has made contributions to the <a target="_new" href="https://en.wikipedia.org/wiki/Fiji">Fijian</a>, <a target="_new" href="https://en.wikipedia.org/wiki/Sanskrit_Wikipedia">Sanskrit</a>, <a target="_new" href="https://en.wikipedia.org/wiki/Hindi_Wikipedia">Hindi</a>, <a target="_new" href="https://en.wikipedia.org/wiki/Bhojpuri_language">Bhojpuri</a> and <a target="_new" href="https://en.wikipedia.org/wiki/Gujarat">Gujarati</a> Wikipedias. Thanks to Ram Prasad, Wikipedia now features an image of the first known writing of the Nepali language.</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container peoplestory">
+					<div class="col_half rc">
+						<img src="images/people/Jake.png" srcset="images/people/Jake@2x.png 2x" width="100%" alt="Photo of Jake Orlowitz" />
+					</div>
+					<div class="col_half lc">
+						<p><b>Jake Orlowitz</b> makes it easier for people to access research materials, and started with a grant from the Wikimedia Foundation.<a target="_new" href="http://blog.wikimedia.org/2014/01/15/the-wikipedia-library-strives-for-open-access/" class="tip" title="<a href='http://blog.wikimedia.org/2014/01/15/the-wikipedia-library-strives-for-open-access/'>The Wikipedia Library Strives for Open Access</a>">[16]</a> He developed <a target="_new" href="https://en.wikipedia.org/wiki/Wikipedia:The_Wikipedia_Library">The Wikipedia Library</a>, an online resource that provides free accounts to paywalled publications, databases, universities, and libraries. Now, Jake and his team of volunteer community organizers are working to build The Wikipedia Library into a global open research hub. This year 1,940 people improved their contributions to Wikipedia using 2,924 donated accounts worth 1,263,011 USD.</p>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content f_3_11">
+				<div class="container">
+					<p class="primary">We were deeply saddened this year by the passing of members of the Wikimedia communities. We are honored to have shared a passion for free knowledge with Ntsika, Adrianne, Ihor, Jim, and others. Their bravery, generosity, and enthusiasm continue to inspire us.</p>
+				</div>
+			</section>
+			<section class="module parallax wmfstaff">
+				<div class="container">
+					<a id="s-4" name="s-4"></a>
+					<div class="section" id="section-4" section="4"></div>
+					<div class="backer">
+						<h1>We are the Wikimedia Foundation</h1>
+					</div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">The job of the Wikimedia Foundation is to be just that: a foundation. We support the Wikimedia communities. We keep Wikipedia online. We build for the future.</p>
+					<p class="primary"><i>We believe in a world in which every single human being can freely share in the sum of all knowledge.</i></p>
+					<div class="infographic full">
+						<p>Every month around <span class="callout">500 million</span> people visit Wikipedia.<br />
+						That's nearly <span class="callout">2.5 million</span> people per Wikimedia Foundation staff person.</p>
+					</div>
+					<div class="col_half lc">
+						<p>The Wikimedia Foundation was established as a non-profit in 2003 to support Wikipedia its sister projects, and the Wikimedia vision.</p>
+
+						<p>We keep the websites fast, secure, and available. We make free knowledge accessible wherever you are &mdash; on your phone or laptop, on a boat in the South Pacific or in the western hills of Nepal. We bring new knowledge online, lower barriers to access, and make it easier for everyone to share what they know.</p>
+
+						<p><b>We believe everyone has the right to knowledge.</b> We defend our communities when they are threatened, legally or otherwise. We stand against censorship, and support open licenses, open access, and open source. We engineer privacy for readers and contributors.</p>
+
+						<p>We support our contributors, users, and developers. Last year we gave more than <span class="callout">5.7</span> million USD to projects that increase the quantity, quality, diversity, and reach of knowledge around the world. We offer resources to people and organizations that believe in the Wikimedia vision.</p>
+
+						<p>We will only achieve our vision when we share it. By supporting communities, building technology, and funding great ideas, the Wikimedia Foundation is a foundation for people everywhere to change their world.</p>
+
+					</div>
+					<div class="col_half rc">
+						<div class="qbox">
+							<div class="quote">"I never would have imagined I would be doing what I am doing for so many people... knowing they are going to have a chance to get to access Wikipedia, and be empowered by it. That is when I feel that my job brings an impact to the people around the world."</div>
+							<div class="signature">&mdash; Adele Vrana</div>
+						</div>
+
+						<div class="qbox">
+							<div class="quote">"...What I love about the team here is the passion to do what we think is the right thing in providing these incredible projects to the communities. It’s a passion from a legal perspective to defend the public domain."</div>
+							<div class="signature">&mdash; Geoff Brigham</div>
+						</div>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content lila">
+				<div class="container">
+					<div class="qbox">
+						<div class="quote">I know from personal experience that the only real way to improve the conditions of civilizations is to provide open access to information for education and culture. Knowledge is more powerful than any one of us &mdash; it belongs to all of us.</div>
+					</div>
+
+					<div class="col_half lc">&nbsp;</div>
+					<div class="col_half rc">
+						<br />
+						<br />
+						<p>I was born in Moscow, in what was then the Soviet Union. Unbiased information was scarce, powerful, and precious.<a target="_new" href="http://blog.wikimedia.org/2014/05/01/wmf_announces_new_ed_lila_tretikov/" class="tip" title="<a href='http://blog.wikimedia.org/2014/05/01/wmf_announces_new_ed_lila_tretikov/'>Announcing our new Executive Director: Lila Tretikov</a>">[17]</a></p>
+
+						<p>As a teenager, I moved to the United States alone. I enrolled in high school and learned English. I became captivated by computer science: it combined my passions for the arts and mathematics. It offered the promise of creating a more open future.</p>
+
+						<p>This year, I became the Executive Director of the Wikimedia Foundation. I joined a community of thousands of passionate creators around the globe, and a staff of 200 people who support the world’s largest free knowledge resource. It was the easiest decision I ever made.</p>
+
+						<p>At the Wikimedia Foundation, we help support the Wikimedia vision: the sum of human knowledge, shared by all. This vision has never been more important.</p>
+
+						<p><b>The world is changing. Reliable, neutral, and trusted information is as powerful as it has ever been. Every day, we ask ourselves how we can increase our impact, and ensure Wikipedia and the sister projects are even more relevant, trusted, and accessible tomorrow than they are today.</b></p>
+						<p><i>Lila Tretikov<br />
+						Executive Director<br />
+						Wikimedia Foundation</i></p>
+
+					</div>
+					<div style="clear:both"></div>
+				</div>
+				<div style="clear:both"></div>
+			</section>
+			<section class="module content f_4_2">
+				<div class="container">
+					<p class="primary">Board of Trustees of the Wikimedia Foundation</p>
+					<div class="col_fifth board">
+						Jan-Bart de Vreede, chair<br />
+						<span class="boardyear">(2006-2015)</span><br />
+						Patricio Lorente, vice-chair<br />
+						<span class="boardyear">(2012-2016)</span>
+					</div>
+					<div class="col_fifth board">
+						Phoebe Ayers<br />
+						<span class="boardyear">(2010-2012)(2013-2015)</span><br />
+						Frieda Brioschi<br />
+						<span class="boardyear">(2007-2008)(2014-2016)</span>
+					</div>
+					<div class="col_fifth board">
+						Bishakha Datta<br />
+						<span class="boardyear">(2010-2014)</span><br />
+						Samuel Klein<br />
+						<span class="boardyear">(2009-2015)</span>
+					</div>
+					<div class="col_fifth board">
+						María Sefidari<br />
+						<span class="boardyear">(2013-2015)</span><br />
+						Jimmy Wales<br />
+						<span class="boardyear">(2003-2015)</span>
+					</div>
+					<div class="col_fifth board">
+						Stu West<br />
+						<span class="boardyear">(2008-2015)</span><br />
+						Alice Wiegand<br />
+						<span class="boardyear">(2012-2016)</span>
+					</div>
+					<div style="clear:both"></div>
+					<p class="board">Former members:</p>
+					<div class="col_fifth board">
+						Kat Walsh<br />
+						<span class="boardyear">(2006-2013)</span>
+					</div>
+					<div class="col_fifth board">
+						Ana Toni<br />
+						<span class="boardyear">(2013-2014)</span>
+					</div>
+					<div style="clear:both"></div>
+
+					<hr style="margin-bottom:40px" />
+
+					<div class="col_half lc">
+						<p>The whole world needs knowledge: more people than before, in different ways than before. Our mission is to ensure that everyone, now and in the future, can access all information. In the hands of everyone, it can cure disease, settle disputes, lift oppression, and inspire creativity.</p>
+					</div>
+					<div class="col_half rc">
+						<a target="_new" href="http://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=11212#.VLNfqmTF-gQ"><img src="images/cn_bw.png" srcset="images/cn_bw@2x.png 2x" width="100%" /></a>
+						<p><i>The Wikimedia Foundation is a four-star rated charity according to Charity Navigator.</i></p>
+					</div>
+					<div style="clear:both; margin-bottom: 30px"></div>
+
+					<p class="primary">Join our mission. Share your knowledge. Work with us.<a target="_new" href="https://wikimediafoundation.org/wiki/Work_with_us#Wikimedia_Careers" class="tip" title="<a href='https://wikimediafoundation.org/wiki/Work_with_us#Wikimedia_Careers'>Wikimedia careers</a>">[18]</a> Contribute.</p>
+				</div>
+			</section>
+			<section class="module parallax earthlights">
+				<div class="container">
+					<a id="s-5" name="s-5"></a>
+					<div class="section" id="section-5" section="5"></div>
+					<div class="backer">
+						<h1>Your contributions are the foundation of free knowledge</h1>
+					</div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">Every year, fewer than <span class="callout">.5%</span> of Wikipedia users make a gift to keep knowledge online and independent. They are an exceptional group.</p>
+					<div class="col_half lc">
+						<div class="infographic">
+							<p>Last year, <span class="callout">2.5 million</span> people from all over the world gave an average of <span class="callout">15 USD</span>. Their gifts ranged from <span class="callout">1 to 1 million dollars</span>.</p>
+						</div>
+						<p>Every gift is meaningful, every gift has impact. We are honored to have the support of these generous readers from every corner of the globe.</p>
+						<p><b>How can we imagine the sum of all human knowledge without every person?</b></p>
+					</div>
+					<div class="col_half rc">
+						<div class="qbox">
+							<div class="quote">"The millions of hours contributed by volunteer writers and editors leverage this modest budget, funded by donations, into an asset <span class="callout">worth tens of billions of dollars that produces hundreds of billions of dollars of...benefit.</span>"</div>
+							<div class="signature">&mdash; Band and Gerafi<a target="_new" href="http://www.smithsonianmag.com/ist/?next=/smart-news/how-much-is-wikipedia-worth-704865/" class="tip" title="<a href='http://www.smithsonianmag.com/ist/?next=/smart-news/how-much-is-wikipedia-worth-704865/'>Wikipedia's Economic Value</a>">[19]</a></div>
+						</div>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content pacha">
+				<div class="container">
+					<p class="primary">This spring we had the honor of getting to know Jim Pacha, an engineer from Colorado.<a target="_new" href="http://blog.wikimedia.org/2014/05/12/the-story-of-jim-pacha/" class="tip" title="<a href='http://blog.wikimedia.org/2014/05/12/the-story-of-jim-pacha/'>The story of Jim Pacha</a>">[20]</a></p>
+					<div class="col_half lc">
+						<div class="qbox">
+							<div class="quote">"Educating the world and getting everybody on the same playing field - I think it's great. And the fact that it's done with no advertising is a big thing, because I really don't like what's happening in the world today, with corporate involvement in everything. And I like the fact that Wikipedia is on the World Wide Web, so basically the whole world can access it."</div>
+						</div>
+					</div>
+					<div class="col_half rc">
+						<a class="video-popup" href="https://www.youtube.com/watch?v=h3C-Nq25hz4"><img src="images/vthumbs/pacha.jpg" srcset="images/vthumbs/pacha@2x.jpg 2x" width="100%" alt="Open video with a message from Jim Pacha" /></a>
+						<p class="sanserif"><i>An illness prompted Jim to consider the legacy he wanted to leave behind. He decided to donate much of his estate to the Wikimedia Foundation in support of the Wikimedia vision and mission.</i></p>
+					</div>
+					<div style="clear:both; margin-bottom: 30px"></div>
+
+					<p class="primary">Jim passed away on May 7th, 2014. His gift to the Wikimedia Foundation is the largest legacy gift in our history. We are extremely grateful for his generous donation and ongoing gift. Thank you, Jim.</p>
+				</div>
+			</section>
+			<section class="module content thanks">
+				<div class="container">
+					<p class="primary">Thank you, everyone.</p>
+					<p>From the staff of the Wikimedia Foundation:</p>
+					<div class="col_half lc">
+						<div class="qbox">
+							<div class="quote">"Wikipedia is a unique human project, a radical idea of creating a world where everyone can freely share the sum of all human knowledge. A warm and heartfelt THANK YOU for supporting our mission and making Wikipedia possible!"</div>
+							<div class="signature">&mdash; Jessica Robell</div>
+						</div>
+						<div class="qbox">
+							<div class="quote">"It's a humbling thing to work for a place that exists because of human generosity and altruism (and because I know some of you got to win some bets!), and I'm very grateful. Thank you. This helps keep me going."</div>
+							<div class="signature">&mdash; Gayle Karen Young</div>
+						</div>
+						<div class="qbox">
+							<div class="quote">"This is the hardest, most fulfilling work of my life. Thank you for making Wikipedia possible!"</div>
+							<div class="signature">&mdash; Monte Hurd</div>
+						</div>
+					</div>
+					<div class="col_half rc">
+						<div class="qbox">
+							<div class="quote">"Thanks to the world for supporting Wikipedia and playing a most important role in continuing the never-ending  mission to share all of the world's knowledge with every person on the planet.  With your generosity, Wikipedia and Wikimedia projects will be here for all well into the future! "</div>
+							<div class="signature">&mdash; Emily Blanchard</div>
+						</div>
+						<div class="qbox">
+							<div class="quote">"You are the silent supporters of the largest open knowledge project on the planet. Big and small, your donations help make this happen - year after year. Thank you for your support, thank you for your trust, and thank you for your commitment to free knowledge."</div>
+							<div class="signature">&mdash; Sylvia Ventura</div>
+						</div>
+						<div class="qbox">
+							<div class="quote">"Gratias vobis agimus, propter magnificentiam vestram, qua colimus vici.  Speramus nos permanere dignos."</div>
+							<div class="signature">&mdash; Asaf Bartov</div>
+						</div>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">We are grateful to be supported by people around the world. We want to give special thanks to those who gave over 1,000 USD this year:</p>
+					<div class="donorlist">
+						<a name="million" id="million"></a>
+						<h3>1+ million USD</h3>
+						<ul class="bare">
+							<li>Alfred P. Sloan Foundation</li>
+							<li>Brin Wojcicki Foundation</li>
+							<li>Stanton Foundation</li>
+						</ul>
+						<a name="hundredthou" id="hundredthou"></a>
+						<h3>100,000 USD - 999,999 USD</h3>
+						<ul class="bare">
+							<li>Google Matching Gifts</li>
+							<li>John S. and James L. Knight Foundation</li>
+							<li>Microsoft Matching Gifts Program</li>
+							<li>Peter Baldwin and Lisbet Rausing</li>
+							<li>Jim Pacha</li>
+							<li>Anonymous (1)</li>
+						</ul>
+						<a name="twentyfivethou" id="twentyfivethou"></a>
+						<h3>25,000 USD - 99,999 USD</h3>
+						<ul class="bare">
+							<li>Apple Matching Gifts Program</li>
+							<li>Boris and Ināra Teterev Foundation</li>
+							<li>Craigslist Charitable Fund</li>
+							<li>Dalio Foundation, Inc.</li>
+							<li>Keel Foundation</li>
+							<li>Mary Graham</li>
+							<li>MathWorks</li>
+							<li>Newsmax Media</li>
+							<li>Two Sigma Investments, LLC</li>
+							<li>Stavros Niarchos Foundation</li>
+							<li>Charina Endowment Fund</li>
+							<li>Anonymous (7)</li>
+						</ul>
+						<a name="fivethou" id="fivethou"></a>
+						<h3>5,000 USD - 24,999 USD</h3>
+						<div class="col_third">
+							<ul class="bare">
+								<li>John E. Abele</li>
+								<li>Anurag Acharya and Madhuri Chattopadhyay Anurag</li>
+								<li>The Blackburn Family Fund</li>
+								<li>Boeing Co. Matching Gifts</li>
+								<li>The Brightwater Fund &mdash; Gloria Jarecki, President</li>
+								<li>Annette Campbell-White</li>
+								<li>Caulkins Family Foundation</li>
+								<li>CNCRepair.com</li>
+								<li>Liam Connell</li>
+								<li>David Dacus</li>
+								<li>Carl de Marcken</li>
+								<li>eBay Foundation</li>
+								<li>Douglas Ferguson</li>
+								<li>In Memory of David Garbers</li>
+								<li>GE Foundation Matching Gifts</li>
+								<li>Goldman Sachs &amp; Co. Matching Gifts Program</li>
+								<li>Google Inc. Charitable Giving Fund of the Tides Foundation</li>
+								<li>Graphics Press, LLC</li>
+								<li>Michael and Andrea Hale</li>
+								<li>David Marin and Amanda Halpin</li>
+							</ul>
+						</div>
+						<div class="col_third">
+							<ul class="bare">
+								<li>Mark Heising and Liz Simons</li>
+								<li>John Horne</li>
+								<li>Interlude</li>
+								<li>Jonathan Jarvis</li>
+								<li>JP Morgan Chase Foundation</li>
+								<li>Steve Kass</li>
+								<li>Takashi Kousaka</li>
+								<li>The Lehoczky Escobar Family</li>
+								<li>Nicholas Logothetis</li>
+								<li>Bill and Marilyn McCune</li>
+								<li>Joseph K. McLaughlin</li>
+								<li>Metz Family Foundation</li>
+								<li>Roberto Mignone</li>
+								<li>Miller-Wehrle Family Foundation</li>
+								<li>The Montgomery Family Foundation</li>
+								<li>Sheila Mossman</li>
+								<li>Maran Elancheran &mdash; Newgen KnowledgeWorks</li>
+								<li>The Nia/Zahiri Foundation</li>
+								<li>P&amp;C Collins Fund at the Bessemer Trust</li>
+								<li>Yana and Stephen Peel</li>
+							</ul>
+						</div>
+						<div class="col_third">
+							<ul class="bare">
+								<li>Post Investment Group</li>
+								<li>Qualcomm Matching Gifts Program</li>
+								<li>Tom and Xiaoling Rawson</li>
+								<li>RetailMeNot</li>
+								<li>Rick &amp; Susan Goings Foundation</li>
+								<li>Philip Rogers</li>
+								<li>Bow Ruggeri</li>
+								<li>Richard Saada</li>
+								<li>Scooter Software</li>
+								<li>Shaked Family, Tel Aviv</li>
+								<li>Silverleaf Foundation</li>
+								<li>Stack Exchange</li>
+								<li>TheLadders</li>
+								<li>Peter Wheeler and Elizabeth Munro</li>
+								<li>Hal Varian</li>
+								<li>Yardi Systems</li>
+								<li>David and Monica Zwirner</li>
+								<li>Anonymous (101)</li>
+							</ul>
+						</div>
+						<div style="clear:both"></div>
+						<a name="thou" id="thou"></a>
+						<h3>1,000 USD - 4,999 USD</h3>
+						<div class="col_third">
+							<ul class="bare">
+								<li>Adobe</li>
+								<li>AIG Matching Grants Program</li>
+								<li>Airbus Group, Inc.</li>
+								<li>David P. Albrecht</li>
+								<li>J. Alex Graeffe</li>
+								<li>In Memory of Tim Allen</li>
+								<li>Fatima Al-Sabah</li>
+								<li>American Express Company Employee Giving Program</li>
+								<li>Ameriprise Financial</li>
+								<li>Amgen Foundation</li>
+								<li>Seonhee An &amp; Vincent Leung</li>
+								<li>The Anderson Family</li>
+								<li>Dalibor Antonić</li>
+								<li>AON Foundation</li>
+								<li>Etienne Ardant</li>
+								<li>AT&amp;T Foundation</li>
+								<li>Jesse Ausubel</li>
+								<li>Prabhu Balasubramanian</li>
+								<li>R &amp; A Bandela</li>
+								<li>Bank of America Matching Gifts Program</li>
+								<li>In Honor of Kathy Bates</li>
+								<li>Ben Bayer</li>
+								<li>Jack Baylis</li>
+								<li>BD Group</li>
+								<li>Heather Bendler</li>
+								<li>William Benter</li>
+								<li>Jayashree and K.S. Bhaskar</li>
+								<li>Butch Biendara</li>
+								<li>Bill and Melinda Gates Foundation Matching Gifts Program</li>
+								<li>Graeme Birchall</li>
+								<li>BlackRock Matching Gifts Program</li>
+								<li>BluePromoCode</li>
+								<li>BMT Micro, Inc.</li>
+								<li>David Bohnett Foundation</li>
+								<li>Beverly &amp; George Bond</li>
+								<li>Antoine Boulin</li>
+								<li>Ernest L. Bruns Jr. and Sue Ann Kendall</li>
+								<li>David Bydeley</li>
+								<li>CA Technologies Matching Gift Program</li>
+								<li>In Honor of Donald Thomas Campbell</li>
+								<li>Brian Cairns</li>
+								<li>Capital Group Companies Charitable Foundation</li>
+								<li>In Memory of Andrea F. Carret</li>
+								<li>Raul Carmenate</li>
+								<li>Adam Carte</li>
+								<li>Vint Cerf</li>
+								<li>Crystal Chen, MD</li>
+								<li>Stuart Cheshire</li>
+								<li>Chevron Humankind Matching Gifts Program</li>
+								<li>James Cho and Sophia Kim</li>
+								<li>Michael Choy and Shannon Moffett</li>
+								<li>Nicholas Chu</li>
+								<li>Ryan Conlon</li>
+								<li>Tom Cooper</li>
+								<li>CouponFollow</li>
+								<li>CouponLawn</li>
+								<li>Ardelle Cowie</li>
+								<li>CRAIC Technologies</li>
+								<li>Kevin Cramer</li>
+								<li>Fred Dart, FTDI</li>
+								<li>Ad Davidse &amp; Cathie Schrier</li>
+								<li>Dell Employees Giving Program</li>
+								<li>Stephen &amp; Elizabeth Detwiler</li>
+								<li>Hester Diamond</li>
+								<li>DirecTV Matching Gift Center</li>
+								<li>Michael and Denise Doyen</li>
+								<li>DreamHost and its Customers</li>
+								<li>Mark Duttweiler and Christine Pajak</li>
+								<li>Kenneth Eddings</li>
+								<li>entimovi.net</li>
+								<li>Davide G. Erro</li>
+								<li>Extra Space Storage</li>
+								<li>Damian Farry</li>
+								<li>Flipit</li>
+								<li>Carla &amp; Charlie Flournoy</li>
+								<li>Marc Forand</li>
+								<li>Gregory Fox</li>
+								<li>Janet and Lloyd Frink</li>
+								<li>Paul Funk</li>
+								<li>Ken Geib</li>
+								<li>Genentech Employee Giving Program</li>
+								<li>General Mills Foundation Gift Matching Program</li>
+								<li>May-Ling Gonzales and Leith Abdulla</li>
+								<li>Lawrence Greenfield</li>
+								<li>Rakesh and Kirti Gupta</li>
+								<li>Alexandre Haag</li>
+								<li>The Hamilton Foundation</li>
+								<li>Josh Bernoff and Kimberley Harding</li>
+								<li>In Honor of Tom and Shoshana Harper</li>
+								<li>healthinsurance.org</li>
+							</ul>
+						</div>
+						<div class="col_third">
+							<ul class="bare">
+								<li>The Harrity Family</li>
+								<li>Charles F. Hebert and Marie Alida Desselle Hebert</li>
+								<li>Paul Henry</li>
+								<li>Hewlett Packard Company Foundation</li>
+								<li>Hillspire, LLC</li>
+								<li>Zach Hoeken</li>
+								<li>Michael Hollihan-Sarmiento</li>
+								<li>Chris Horning</li>
+								<li>HSBC</li>
+								<li>Lisha and Andy Hu</li>
+								<li>Ted Huber</li>
+								<li>IBM Employee Donations</li>
+								<li>Imperial Reach</li>
+								<li>INSERTO</li>
+								<li>Insiders Finland Oy Ab</li>
+								<li>Intetics Co.</li>
+								<li>Intuit Foundation</li>
+								<li>Douglas Jaffe</li>
+								<li>Kent Janér</li>
+								<li>John P. McCaskey Foundation</li>
+								<li>Dan Jones</li>
+								<li>Joy is one's fuel</li>
+								<li>In Memory of our smart, loving Grandma Judy</li>
+								<li>Lucian Kafka and aura.travel</li>
+								<li>Ellen Karaku</li>
+								<li>In Honor of Harold King</li>
+								<li>The Kipping Family</li>
+								<li>In Honor of SJ Klein, Jr. and Jimmy Wales</li>
+								<li>The KlickEx Group</li>
+								<li>In Memory of George Steven Knowles</li>
+								<li>Little Johnny Koerber</li>
+								<li>Igor Kopylov</li>
+								<li>Corey Kosak</li>
+								<li>Mr. &amp; Mrs. Steve Kropla</li>
+								<li>Pradhan Kumar</li>
+								<li>En souvenir de Réal Labelle</li>
+								<li>乐进会</li>
+								<li>Pete Large &amp; Mandy Loomis</li>
+								<li>Lawrence Livermore Labs</li>
+								<li>Linda Lee</li>
+								<li>In Memory of Mary Lew</li>
+								<li>Leong &amp; Richards</li>
+								<li>Lincoln Loop</li>
+								<li>Gregg and Libby Lindahl</li>
+								<li>Christopher J. Lingle</li>
+								<li>John Longres &amp; Jeff Graham</li>
+								<li>Erin Lowry</li>
+								<li>Marilyn Lucht</li>
+								<li>Greg and Liz Lutz</li>
+								<li>In Memory of Shaynon MaGee Jordan</li>
+								<li>Make-A-Website</li>
+								<li>Lenza McElrath</li>
+								<li>In Memory of Nadia L. Mead, Mandarin, Florida</li>
+								<li>Helen and Stephen Mildenhall</li>
+								<li>Kelly T. Miller</li>
+								<li>Ryan Mills</li>
+								<li>Dr. L. David Mirkin</li>
+								<li>Alan Mishchenko</li>
+								<li>Ty Mulroy and Ellen Ray</li>
+								<li>Umesh Nagarkatte</li>
+								<li>National Instruments</li>
+								<li>In Memory of Robert Neale</li>
+								<li>Netmail &amp; Messaging Architects Employee-Owners</li>
+								<li>Donors of Network For Good</li>
+								<li>In Memory of Marjorie Yospin Newman</li>
+								<li>Héléne Nivoix, Besançon, France</li>
+								<li>North American Herb and Spice</li>
+								<li>Nvidia Employee Giving Program</li>
+								<li>Diya Obeid</li>
+								<li>On Behalf of the Scientists of Huntsville, Alabama</li>
+								<li>Oracle Corporation Matching Gifts Program</li>
+								<li>John and Rita Ousterhout</li>
+								<li>In Memory of my beloved mother, Pravina Patel</li>
+								<li>Terrence D. Paul</li>
+								<li>Daniel Perlman</li>
+								<li>PCH Integrated Regulatory Services, Inc.</li>
+								<li>Lena Pepper</li>
+								<li>Drew Perkins</li>
+								<li>In Honor of Nick Peter</li>
+								<li>Bryce and Shonni Peterson</li>
+								<li>Pfizer Foundation Matching Gifts Program</li>
+								<li>Duane Phillips</li>
+								<li>In Memory of Donald R. Pieper</li>
+								<li>Joseph Pistritto</li>
+								<li>Doug Pitcock</li>
+								<li>Rahn Pitzer</li>
+								<li>Alexander Polsky</li>
+								<li>Prakhar Prerak Akta Pravin</li>
+								<li>Robert and Anna Prestezog</li>
+								<li>Quality Logo Products</li>
+							</ul>
+						</div>
+						<div class="col_third">
+							<ul class="bare">
+								<li>Radon.com</li>
+								<li>PVS Raju</li>
+								<li>B S Ramamurtie</li>
+								<li>Rear Admiral Gametools</li>
+								<li>Richard and Lisa Reichman</li>
+								<li>Paul Resnick and Caroline Richardson</li>
+								<li>Sean Rhea and Lucy Almers</li>
+								<li>Deborah and Peter Rieman</li>
+								<li>Gaspar Cabrera Roca</li>
+								<li>Arnold G. Rogers</li>
+								<li>Rohini and Prasana Family Trust</li>
+								<li>Alexander and Jeannine Rubenstein</li>
+								<li>Robert Rubenstien</li>
+								<li>Matt Rudary</li>
+								<li>Runtime Design Automation</li>
+								<li>Salesforce.com Foundation Matching Gifts</li>
+								<li>Dorothea and Hartmut Samtleben</li>
+								<li>SAP Matching Gift Program</li>
+								<li>John and Susan Savva</li>
+								<li>E. Schmale</li>
+								<li>Roy Schneiderman (Bard Consulting)</li>
+								<li>Josh Schripsema and Kresta Austin</li>
+								<li>Anna Scott</li>
+								<li>SelectAware Coupons</li>
+								<li>Shell Matching Gifts Program</li>
+								<li>Russel Simmons</li>
+								<li>Wilmar Siqueira</li>
+								<li>www.ski-epic.com</li>
+								<li>skiprobert</li>
+								<li>Petr Skrla</li>
+								<li>Dick Smith, Sydney, Australia</li>
+								<li>Minyoung Sohn</li>
+								<li>Solera Family</li>
+								<li>Space Exploration Technologies Corp</li>
+								<li>Spellbook</li>
+								<li>Stratos</li>
+								<li>H. Scott Stillings</li>
+								<li>Studio Alchemy</li>
+								<li>SumoCoupon</li>
+								<li>David Sunderland</li>
+								<li>Roger Suss</li>
+								<li>G. &amp; M. Swaminathan</li>
+								<li>Bronwyn Miriam Syed</li>
+								<li>Terry Tai</li>
+								<li>In Memory of Andrea Tallant</li>
+								<li>Targit</li>
+								<li>Luigi Tempini and Family</li>
+								<li>Thanksgiving Fund</li>
+								<li>Thatai Family</li>
+								<li>Sudhir Thomas</li>
+								<li>Thomson Reuters My Community Program</li>
+								<li>Min Thu</li>
+								<li>Viajes Tierra Sinai</li>
+								<li>Tikvah Philanthropic Fund</li>
+								<li>TisBest Charity Gift Cards</li>
+								<li>Jonathan Tobert</li>
+								<li>E. Trewitt</li>
+								<li>Tripling Elephants</li>
+								<li>Rui Ueyama</li>
+								<li>Jason Ursaner</li>
+								<li>Maarten Vaandrager</li>
+								<li>Erik Vaaler</li>
+								<li>David L. Van Brunt</li>
+								<li>Sami Vanhatalo</li>
+								<li>Jason VanWees</li>
+								<li>Ajit Varki</li>
+								<li>Verizon Foundation</li>
+								<li>Visa Matching Gifts Program</li>
+								<li>VMware Foundation</li>
+								<li>Chad and Kim Wagner</li>
+								<li>In Memory of Jack Wahl</li>
+								<li>Robert Wares</li>
+								<li>Jim and Judy Warner</li>
+								<li>Rich Warner</li>
+								<li>丁磊</li>
+								<li>Web Hosting Coupon Codes</li>
+								<li>Dr. Jack Widrich Foundation</li>
+								<li>Wikimedia Foundation Staff</li>
+								<li>Wil Wilstro</li>
+								<li>The Walt Disney Company Foundation</li>
+								<li>The Wolff Family</li>
+								<li>Oliver Wright</li>
+								<li>Xie Wu</li>
+								<li>Yahoo Employee Funds Matching Gifts</li>
+								<li>Jeff Yass</li>
+								<li>Brian Ho Tze Yew</li>
+								<li>Zephyr Charitable Foundation</li>
+								<li>Greg Zeschuk</li>
+								<li>Anonymous (592)</li>
+							</ul>
+						</div>
+						<div style="clear:both"></div>
+					</div>
+				</div>
+			</section>
+			<section class="module parallax office">
+				<div class="container">
+					<a id="s-6" name="s-6"></a>
+					<div class="section" id="section-6" section="6"></div>
+					<div class="backer">
+						<h1>Financial position and performance</h1>
+					</div>
+				</div>
+			</section>
+			<section class="module content">
+				<div class="container">
+					<p class="primary">The Wikimedia Foundation is proud to be one of the most transparent non-profit organizations in the world. We consider all of our expenditures against a framework of our strategy, values, and mission. We carry financial reserves in accordance with non-profit best practices to ensure the future and health of the Wikimedia projects.</p>
+					<p class="primary">This year we highlight our efforts in three main areas: how donor contributions support Wikimedia project websites, our communities, and free knowledge overall. The following designations are as reported by the Wikimedia Foundation’s departments themselves.</p>
+
+					<img src="images/graph-01.jpg" srcset="images/graph-01@2x.jpg 2x" width="100%" />
+					<br />
+					<br />
+					<h2>Balance Sheet</h2>
+					<p style="font-size: 11pt">As of June 30, 2014<br />
+					In thousands, In US dollars</p>
+					<h3>Assets</h3>
+					<h4>Current assets</h4>
+					<table class="report">
+						<tr><td>Cash and cash equivalents</td><td class="number">27,880</td></tr>
+						<tr class="stripe"><td>Current portion of contributions receivable</td><td class="number">1,800</td></tr>
+						<tr><td>Investments</td><td class="number">23,261</td></tr>
+						<tr class="stripe"><td>Prepaid expenses and other current assets</td><td class="number">1,600</td></tr>
+						<tr><td class="indent">Total current assets</td><td class="number">54,541</td></tr>
+						<tr class="stripe"><td>Property, plant, and equipment, net</td><td class="number">4,053</td></tr>
+						<tr><td>Noncurrent portion of contributions receivable</td><td class="number">1,967</td></tr>
+						<tr class="stripe"><td class="indent">Total assets</td><td class="number">60,561</td></tr>
+					</table>
+
+
+					<h3>Liabilities and Net Assets</h3>
+					<h4>Current liabilities</h4>
+					<table class="report">
+						<tr><td>Accounts payable</td><td class="number">2,029</td></tr>
+						<tr class="stripe"><td>Accrued expenses</td><td class="number">3,577</td></tr>
+						<tr><td>Deferred revenue</td><td class="number">18</td></tr>
+						<tr class="stripe"><td>Other liabilities</td><td class="number">1,462</td></tr>
+						<tr><td class="indent">Total current liabilities</td><td class="number">7,086</td></tr>
+						<tr class="stripe"><td class="indent">Total liabilities</td><td class="number">7,086</td></tr>
+					</table>
+					<h4>Net assets</h4>
+					<table class="report">
+						<tr><td>Unrestricted</td><td class="number">49,825</td></tr>
+						<tr class="stripe"><td>Temporarily restricted</td><td class="number">3,650</td></tr>
+						<tr><td class="indent">Total net assets</td><td class="number">53,475</td></tr>
+						<tr class="stripe"><td class="indent">Total liabilities and net assets</td><td class="number">60,561</td></tr>
+					</table>
+
+					<h3>Unrestricted net assets</h3>
+					<h4>Support and revenue</h4>
+					<table class="report">
+						<tr><td>Donations and contributions</td><td class="number">49,612</td></tr>
+						<tr class="stripe"><td>In-kind service revenue</td><td class="number">370</td></tr>
+						<tr><td>Other income, net</td><td class="number">989</td></tr>
+						<tr class="stripe"><td>Investment income, net</td><td class="number">244</td></tr>
+						<tr><td>Release of restrictions on temporarily restricted net assets</td><td class="number">1,589</td></tr>
+						<tr class="stripe"><td class="indent">Total support and revenue</td><td class="number">52,804</td></tr>
+					</table>
+
+					<h4>Expenses</h4>
+					<table class="report">
+						<tr><td>Salaries and wages</td><td class="number">19,980</td></tr>
+						<tr class="stripe"><td>Awards and grants</td><td class="number">5,705</td></tr>
+						<tr><td>Internet hosting</td><td class="number">2,529</td></tr>
+						<tr class="stripe"><td>In-kind service expenses</td><td class="number">371</td></tr>
+						<tr><td>Other operating expenses</td><td class="number">12,485</td></tr>
+						<tr class="stripe"><td>Travel and conferences</td><td class="number">1,966</td></tr>
+						<tr><td>Depreciation</td><td class="number">2,722</td></tr>
+						<tr class="stripe"><td>Special event expense, net</td><td class="number">143</td></tr>
+						<tr><td class="indent">Total expenses</td><td class="number">45,900</td></tr>
+						<tr class="stripe"><td class="indent">Increase in unrestricted net assets</td><td class="number">6,904</td></tr>
+					</table>
+					<h4>Temporarily restricted net assets</h4>
+					<table class="report">
+						<tr><td>Contributions</td><td class="number">2,971</td></tr>
+						<tr class="stripe"><td>Release of restrictions on temporarily restricted net assets</td><td class="number">(1,589)</td></tr>
+						<tr><td class="indent">Increase in temporarily restricted net assets</td><td class="number">1,382</td></tr>
+						<tr class="stripe"><td class="indent">Increase in net assets</td><td class="number">8,286</td></tr>
+						<tr><td>Net assets at beginning of year</td><td class="number">45,189</td></tr>
+						<tr class="stripe"><td>Net assets at end of year</td><td class="number">53,475</td></tr>
+					</table>
+
+					<h4>Departmental Allocation of Expenses</h4>
+					<p style="font-size: 11pt">For the period from July 1, 2013 through June 30, 2014<br />
+					In thousands, In US dollars</p>
+
+					<table class="report">
+						<tr><td>Product and Engineering</td><td class="number">19,813</td></tr>
+						<tr class="stripe"><td>Grants</td><td class="number">5,705</td></tr>
+						<tr><td>Grantmaking and Programs</td><td class="number">4,779</td></tr>
+						<tr class="stripe"><td>Fundraising</td><td class="number">4,018</td></tr>
+						<tr><td>Management and Governance</td><td class="number">1,175</td></tr>
+						<tr class="stripe"><td>General and Administration</td><td class="number">10,410</td></tr>
+						<tr><td>Total</td><td class="number">45,900</td></tr>
+					</table>
+					<img src="images/graph-02.jpg" srcset="images/graph-02@2x.jpg 2x" width="100%" />
+				</div>
+			</section>
+			<section class="module content footer">
+				<div class="container">
+					<div class="col_third">
+						<p><a target="_new" href="https://wikimediafoundation.org/wiki/Home">Wikimedia Foundation</a></p>
+						<p>The <a target="_new" href="https://wikimediafoundation.org/wiki/Home">Wikimedia Foundation, Inc.</a> Is a non-profit charitable organization dedicated to encouraging the growth, development and distribution of free, multilingual content, and to providing the full content of these wiki-based projects to the public free of charge.</p>
+						<p>A <a target="_new" href="https://wikimediafoundation.org/wiki/Annual_Report">wiki version</a> of this document is available.</p>
+
+					</div>
+					<div class="col_third">
+						<p><a target="_new" href="https://www.wikimedia.org/">Wikimedia projects</a></p>
+						<p>The Wikimedia Foundation operates some of the largest collaboratively edited reference projects in the world.</p>
+
+					</div>
+					<div class="col_third">
+						<p><a target="_new" href="https://meta.wikimedia.org/wiki/Wikimedia_movement_affiliates">Wikimedia movement affiliates</a></p>
+						<p>The Wikimedia projects have an international scope, and the Wikimedia movement has already made a significant impact throughout the world. To continue this success on an organizational level, Wikimedia is building an international network of associated organizations.</p>
+						<p>Annual reports from Wikimedia chapters, thematic organizations, user groups, and allied organizations are available at: <a target="_new" href="https://meta.wikimedia.org/wiki/Reports">https://meta.wikimedia.org/wiki/Reports</a></p>
+					</div>
+					<div style="clear:both"></div>
+					<br />
+					<br />
+					<div class="center">
+						
+						<div style="text-align:center">
+							<img src="images/icons/wmfbug_dark.png" srcset="images/icons/wmfbug_dark@2x.png 2x" />
+						</div>
+						<p><a target="_new" href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_new" href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</a></p>
+						<p>This work is licensed under a <a target="_new" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 unported license</a>. Some images under CC BY-SA.</p>
+
+						<p>The Wikipedia puzzle globe logo, by <a href="https://wikimediafoundation.org/wiki/Wikimedia_trademarks">authors</a>, CC BY-SA 3.0<br />
+						The Wikimedia Foundation trademarks and logos are usually pending trademark registration or are registered trademarks of the Wikimedia Foundation. For more information, please see our <a href="https://wikimediafoundation.org/wiki/Trademark_policy">Trademark Policy page</a> or contact <a href="mailto:trademarks@wikimedia.org">trademarks@wikimedia.org</a></p>
+					</div>
+				</div>
+			</section>
+			<section class="module content footer attributions">
+				<div class="container">
+					<h2>Media attributions</h2>
+					<ol>
+						<li>Section 1 title image <a target="_new" href="https://commons.wikimedia.org/wiki/File:%C2%A9SYDELLEWILLOWSMITH_2013_WIKIMEDIA_SINENJONGO_GRADUATIONMATRIC20131015_0381.jpg">photo</a> by Sydellewillowsmith CC BY-SA 3.0<br />
+							https://commons.wikimedia.org/wiki/File:%C2%A9SYDELLEWILLOWSMITH_2013_WIKIMEDIA_SINENJONGO_GRADUATIONMATRIC20131015_0381.jpg
+							<ol>
+								<li>Sinenjongo <a target="_new" href="https://commons.wikimedia.org/wiki/File:A_petition_for_free_access_to_Wikipedia.webm"> video </a> by Victor Grigas CC BY-SA 3.0 Unported<br />
+									https://commons.wikimedia.org/wiki/File:A_petition_for_free_access_to_Wikipedia.webm</li>
+								<li>[under the gray] <a target="_new" href="https://commons.wikimedia.org/wiki/File:Shack_in_joe_slovo.JPG"> photo </a> by Unathi dodo CC BY-SA 3.0<br />
+								https://commons.wikimedia.org/wiki/File:Shack_in_joe_slovo.JPG</li>
+							</ol>
+						</li>
+						<li>Section 2 title image <a target="_new" href="https://commons.wikimedia.org/wiki/File:Spitzer%27s_Orion.jpg">photo</a> by NASA public domain
+							<ol>
+								<li>Year In Review <a target="_new" href="https://commons.wikimedia.org/wiki/File:Wikipedia_Edit_2014.webm"> video </a> by Victor Grigas CC BY-SA 3.0 Unported<br />
+									https://commons.wikimedia.org/wiki/File:Wikipedia_Edit_2014.webm</li>
+								<li>Jack Andraka <a target="_new" href="https://commons.wikimedia.org/wiki/File:Jack_Andraka_2012_ISEF_Winner.jpg">photo</a> by Intel Free Press CC BY-SA 2.0<br />
+									https://commons.wikimedia.org/wiki/File:Jack_Andraka_2012_ISEF_Winner.jpg</li>  
+								<li>[under the gray] <a target="_new" href="https://commons.wikimedia.org/wiki/File:HK_Central_Land_Reclamation_Building_site_12-12-2007.JPG"> photo </a> By CUMBELEE (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or FAL], via Wikimedia Commons <br />
+									https://commons.wikimedia.org/wiki/File:HK_Central_Land_Reclamation_Building_site_12-12-2007.JPG</li>
+							</ol>                                                 
+						</li>                                                 
+
+						<li>Section 3 title image <a target="_new" href="https://commons.wikimedia.org/wiki/File:14-08-10-wikimania-gruppenfoto-01.jpg">photo</a> by Ralf Roletschek CC BY-SA 3.0 Austria<br />
+							https://commons.wikimedia.org/wiki/File:14-08-10-wikimania-gruppenfoto-01.jpg                                                         
+							<ol>
+								<li>Edit counter <a target="_new" href="https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_16.jpg">photo</a> by Victor Grigas CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_Servers-8055_16.jpg</li>
+								<li>[under the gray] <a target="_new" href="https://commons.wikimedia.org/wiki/File:US_Navy_090910-N-9818V-573_Builder_1st_Class_Jason_Shurtz_shows_Master_Chief_Petty_Officer_of_the_Navy_(MCPON)_Rick_West_the_work_sites_of_Naval_Mobile_Construction_Battalion_(NMCB)_74_during_a_tour_of_the_base_in_Kandahar.jpg"> photo </a> by Mass Communication Specialist 1st Class Jennifer A. Villalovos Public domain</li>  
+								<li>Netha <a target="_new" href="https://commons.wikimedia.org/wiki/File:Netha_Hussain-925.jpg">photo</a> by Adam Novak CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Netha_Hussain-925.jpg</li>
+								<li>Jacek <a target="_new" href="https://commons.wikimedia.org/wiki/File:Jacek_Halicki_z_rowerem.JPG">photo</a> by Sławomir Mulka CC BY 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Jacek_Halicki_z_rowerem.JPG</li>
+								<li>Dumisani <a target="_new" href="https://commons.wikimedia.org/wiki/File:Dumisani_Ndubane-4626.jpg">photo</a> by Karen Sayre CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Dumisani_Ndubane-4626.jpg</li>
+								<li>Adrianne <a target="_new" href="https://commons.wikimedia.org/wiki/File:Wikimania_2012_portrait_102_by_ragesoss,_2012-07-13.JPG">photo</a> by Sage Ross CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Wikimania_2012_portrait_102_by_ragesoss,_2012-07-13.JPG</li>
+								<li>Ihor <a target="_new" href="https://commons.wikimedia.org/wiki/File:Ihor_Kostenko_3.jpg">photo</a> by Mariia Mudra CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Ihor_Kostenko_3.jpg</li>
+								<li>Dorothy <a target="_new" href="https://commons.wikimedia.org/wiki/File:Dorothy_Howard_in_NYC.jpg">photo</a> by Victor Grigas CC BY-SA 4.0<br />
+									https://commons.wikimedia.org/wiki/File:Dorothy_Howard_in_NYC.jpg</li>
+								<li>Ram Prasad <a target="_new" href="https://commons.wikimedia.org/wiki/File:RP_joshi.jpg">photo</a> Ganesh Paudel CC BY-SA 4.0<br />
+									https://commons.wikimedia.org/wiki/File:RP_joshi.jpg</li>
+								<li>Jake <a target="_new" href="https://commons.wikimedia.org/wiki/File:Jake_Orlowitz,_The_Wikipedia_Library,_at_Wikimania_2014.jpg">photo</a> by Sebastiaan ter Burg CC BY-SA 2.0<br />
+									https://commons.wikimedia.org/wiki/File:Jake_Orlowitz,_The_Wikipedia_Library,_at_Wikimania_2014.jpg</li>
+								<li>[under the grey] <a target="_new" href="https://commons.wikimedia.org/wiki/File:StanleyHouse.jpg">photo</a> by Ssarjola Public domain<br />
+									https://commons.wikimedia.org/wiki/File:StanleyHouse.jpg</li>
+							</ol>                                                 
+						</li>                                                 
+
+						<li>Section 4 title image <a target="_new" href="https://commons.wikimedia.org/wiki/File:Wiki-ah-thu-_MG_8149-0003.jpg">photo</a> by Myleen Hollero CC BY-SA 3.0<br />
+							https://commons.wikimedia.org/wiki/File:Wiki-ah-thu-_MG_8149-0003.jpg
+							<ol>                                                                 
+								<li>Lila <a target="_new" href="https://commons.wikimedia.org/wiki/File:Wikimania_2014_Day_2_(14920026912).jpg">photo</a> by Pierre-Selim CC BY-SA 2.0<br />
+									https://commons.wikimedia.org/wiki/File:Wikimania_2014_Day_2_(14920026912).jpg</li>
+								<li>[under the grey] <a target="_new" href="https://commons.wikimedia.org/wiki/File:Gammel_musesikker_fundamentering_av_uthus.JPG">photo</a> by Øyvind Holmstad CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Gammel_musesikker_fundamentering_av_uthus.JPG</li>
+							</ol>                                                 
+						</li>                                                 
+
+
+						<li>Section 5 title image <a target="_new" href="https://commons.wikimedia.org/wiki/File:Earthlights_dmsp.jpg">photo</a> by NASA public domain
+							<ol>                                                                 
+								<li>Jim <a target="_new" href="https://commons.wikimedia.org/wiki/File:Jim_Pacha_-_Legacy_Donor,_Wikimedia_Foundation.webm">video</a> by Victor Grigas CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Jim_Pacha_-_Legacy_Donor,_Wikimedia_Foundation.webm</li>
+								<li>[under the blue]<a target="_new" href="https://commons.wikimedia.org/wiki/File:Wakasa-juku06s4592.jpg"></a> by663highland CC BY-SA 3.0<br />
+									https://commons.wikimedia.org/wiki/File:Wakasa-juku06s4592.jpg</li>                                                    
+							</ol>                                                 
+						</li>                                                 
+						<li>Section 6 title image <a target="_new" href="https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_office_in_San_Francisco_01.jpg">photo</a> by Sebastiaan ter Burg CC BY-SA 4.0 International<br />
+							https://commons.wikimedia.org/wiki/File:Wikimedia_Foundation_office_in_San_Francisco_01.jpg</li>
+					</ol>
+					<h2>Licenses</h2>
+					<ol>
+						<li><a target="_new" href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></li>
+						<li><a target="_new" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></li>
+						<li><a target="_new" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></li>
+						<li><a target="_new" href="https://creativecommons.org/licenses/by-sa/3.0/at/deed.en">CC BY-SA 3.0 Austria</a></li>
+						<li><a target="_new" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+						<li><a target="_new" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</body>
+	<!--
+		made with care by
+			brandon
+			caitlin
+			heather
+			katherine
+			mun-may
+			valerie
+			victor
+	-->
+</html>

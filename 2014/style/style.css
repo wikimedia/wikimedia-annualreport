@@ -1,0 +1,743 @@
+/* blow away chrome glow */
+textarea, input, button, select { outline: none; }
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+body {
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 15pt;
+    line-height: 1.6;
+    color: #333;
+}
+.sanserif {
+    font-family: Helvetica Neue, Arial, sans-serif;    
+}
+body.imaged {
+    color: #eee;
+}
+input, button, select, textarea {
+    font-family: sans-serif;
+    vertical-align: middle;
+}
+a {
+    color: #347bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    color: #347bff;    
+}
+h2, h3, h4, h5 {
+    overflow: hidden;
+}
+hr { 
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+ul, ol {
+    padding: 0;
+    margin-left: 20px;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.left { text-align: left; }
+.center { text-align: center; }
+.number, .right { text-align: right; }
+.clickable { cursor: pointer; }
+
+#navigation {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    z-index: 500;
+    vertical-align: middle;
+    padding-top: 5px;
+}
+#wmfbug, ul#nav, ul#mobilenav { 
+    float: left;
+}
+ul#nav {
+    position: relative;
+    list-style-type: none;
+    margin: 0px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+ul#nav li {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding-right: 20px;
+}
+#navigation a {
+    color: #767676;
+    font-size: 10pt;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+#navigation a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+#navigation a.current, #navigation a.current:hover {
+    color: #222;   
+}
+ul#mobilenav {
+    position: relative;
+    float: left;
+    margin: 0px;
+    list-style-type: none;
+    padding-left: 20px;
+    background-color: #fff;
+    padding-top: 5px;
+    display: none;
+}
+ul#mobilenav li {
+    list-style-type: none;
+    padding-right: 20px;
+}
+ul#mobilechild {
+    background-color: #fff;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px;
+    display:none;
+}
+ul#mobilechild li {
+
+}
+
+#smedia {
+    float: right;
+    padding-top: 10px;
+}
+#smedia a img {
+    opacity: .2;
+}
+#smedia a img:hover {
+    opacity: 1;
+}
+
+h2 {
+    font-size: 24pt;
+    margin: 10px 0px;
+}
+h3 {
+    font-size: 20pt;
+    margin: 10px 0px;
+}
+h4 {
+    font-size: 16pt;
+    margin: 0px;
+}
+.container .col_half {
+    width: 50%;
+}
+.col_half.lc {
+    float: left;
+    padding-right: 30px;
+    font-size: 11pt;
+}
+.col_half.rc {
+    float: right;
+    padding-left: 30px;
+    font-size: 11pt;
+}
+.col_half p:first-of-type {
+    margin-top: 0px;
+}
+.container .col_third {
+    float: left;
+    width: 33%;
+    padding-right: 20px;
+}
+.container .col_fifth {
+    float: left;
+    width: 20%;
+}
+section.module h3:first-child {
+  margin-top: 0;
+}
+
+.donorlist {
+    font-size: 8pt;
+}
+.donorlist h3 {
+    font-size: 15pt;
+}
+.board {
+    font-size: 10pt;
+}
+p.board {
+    margin-bottom: 5px !important;
+}
+.boardyear {
+    font-size: 8pt;
+    color: #999;
+}
+p.primary {
+    font-family: Georgia, Times, serif;
+    font-size: 18pt;
+}
+a.tip {
+    color: #347bff !important;
+    cursor: pointer;
+    vertical-align: super;
+    font-size: 8pt;
+}
+.qbox {
+    font-family: Georgia, Times, serif;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16pt;
+    color: #7d7d7d;
+}
+.col_half .qbox {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.qbox .quote {
+    font-style: italic;
+}
+.qbox .signature {
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 15px;
+}
+.qbox.highlighted {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.peoplestory {
+    opacity: 0;
+}
+.peoplestory p {
+    font-size: 14pt;
+}
+
+ul.bare {
+    list-style-type: none;
+    margin: 0;
+}
+
+.blur {
+    -webkit-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -o-filter: blur(10px);
+    filter: blur(10px);
+    filter: url(#blur);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='10');
+}
+.callout {
+    font-weight: bold;
+    font-size: 120%;
+}
+table.report {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table.report td {
+    vertical-align: top;
+    font-size: 11pt;
+}
+table.report td.number {
+    border-left: 1px solid #ccc;
+    padding: 0;
+    width: 75px;
+}
+table.report td.indent {
+    padding-left: 60px;
+}
+table.report tr.stripe {
+    background-color: #eee;
+}
+
+button {
+    display: inline-block;
+    padding: 0.4em 1em 0.4em 1em;
+    margin: 0;
+    font-size: 18pt;
+    text-align: center;
+    cursor:pointer;
+    background-color: #3a5f68;
+    border: 2px solid #3a5f68;
+    color: #ddd;
+    vertical-align: middle;
+    *vertical-align: auto;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer; 
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+button:hover {
+    color: #fff;
+    background-color: #173D56;
+    border: 2px solid #173D56;    
+}
+
+
+
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+  margin-bottom: 0;
+}
+section.module h2 {
+  font-size: 18pt;
+}
+section.module p {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+section.module p:last-child {
+    margin-bottom: 0;
+}
+section.module p:first-child {
+    margin-top: 0;
+}
+section.module.content {
+    padding: 60px 0;
+}
+section.module.parallax {
+  height: 600px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+section.module.parallax .container {
+    height: 600px;
+    vertical-align: middle;
+    position: relative;
+}
+.backer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+div.infographic {
+    background-color: #29b694;
+    color: #fff;
+    padding: 30px;
+    font-size: 150%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+}
+div.infographic.full {
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 100%;
+    margin-bottom: 30px;
+}
+section.module.parallax h1 {
+    color: #fff;
+    line-height: 1.45;
+    font-family: Georgia, Times, serif;
+    text-align: left;
+    font-weight: normal;
+    position: relative;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 75px;
+    font-size: 48pt;
+}
+
+section.graduation {
+    background-image: url("../images/backgrounds/graduation.jpg");
+}
+section.office {
+    background-image: url("../images/backgrounds/foundation_offices.jpg");
+}
+section.wikimania {
+    background-image: url("../images/backgrounds/wikimania.jpg");
+}
+section.orion {
+    background-image: url("../images/backgrounds/orion.jpg");
+}
+section.earthlights {
+    background-image: url("../images/backgrounds/earthlights.jpg");
+}
+section.wmfstaff {
+    background-image: url("../images/backgrounds/wmf_staff.jpg");
+}
+section.editcounter {
+    background-image: url("../images/backgrounds/servers.jpg");
+    background-color: #000;
+    color: #eee;
+    text-align: center;
+    padding-top: 100px;
+}
+.editcounter a, .editcounter a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+#counter {
+    font-family: Helvetica Neue, Arial, sans-serif;
+    margin-bottom: 0px;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+#counter-2 {
+    font-size: 15pt;
+}
+section.module.thanks {
+    background-color: #3a5f68;
+}
+section.module.thanks p {
+    color: #ddd;
+}
+section.module.thanks .qbox {
+    color: #bbb;
+}
+section.module.thanks .quote {
+    font-size: 13pt;
+}
+section.module.thanks .signature {
+    font-size: 11pt;
+}
+section.module.divider {
+    background-color: #ccc;
+}
+section.module.attributions {
+    overflow: hidden;
+}
+section.module.f_1_2 {
+    background-image: url("../images/backgrounds/1.2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+section.module.f_2_3 {
+    background-image: url("../images/backgrounds/2.3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+section.module.f_3_2 {
+    background-image: url("../images/backgrounds/3.2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+section.module.f_3_11 {
+    background-image: url("../images/backgrounds/3.11.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+section.module.f_4_2 {
+    background-image: url("../images/backgrounds/4.2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+section.module.pacha {
+    background-color: #173D56;
+    color: #ddd;
+    font-family: Georgia, Times, serif;
+    background-image: url("../images/backgrounds/pacha.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.pacha .quote {
+    color: #ddd;
+}
+
+section.module.lila {
+    background-color: #000;
+    background-image: url("../images/backgrounds/lila.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #ddd;
+}
+.lila .qbox {
+    width: 100%;
+}
+.lila .quote {
+    color: #ddd;
+}
+section.module.editcounter {
+    background-color: #000;
+    color: #eee;
+    text-align: center;
+}
+section.module.footer {
+    background-color: #3a3a3a;
+    font-size: 10pt;
+}
+section.module.footer a, section.module.footer a:visited {
+    color: #9c9c9c;
+}
+section.module.footer {
+    color: #666;
+}
+section.module.attributions {
+    background-color: #2e2e2e;
+}
+
+#counter {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Styles for dialog window */
+#editcounterinfo {
+    background: white;
+    padding: 20px 30px;
+    text-align: left;
+    width: auto;
+    max-width: 70%;
+    margin: 40px auto;
+    position: relative;
+}
+
+/* Listen to wikipedia */
+#lwpmaster {
+    background: white;
+    padding: 0px
+    text-align: left;
+    width: 800px;
+    margin: 40px auto;
+    position: relative;
+}
+#lwpinfo {
+    padding: 30px;
+}
+#lwpinfo p {
+    margin-top: 0px;
+}
+#listentowikipedia {
+    width: 800px;
+    height: 200px;
+    background-color: #3a5f68;
+}
+#edit_counter {
+    font-size: 1.5em;
+    color: #000;
+}
+#edit_counter span {
+    color: #cc4731;
+}
+circle {
+    fill-opacity: .5;
+}
+.article-label {
+    font: 1.0em sans-serif;
+    text-shadow:1px 1px 0 rgb(28, 39, 51),
+    -1px -1px 0 rgb(28, 39, 51),
+    1px -1px 0 rgb(28, 39, 51),
+    -1px 1px 0 rgb(28, 39, 51),
+    0px 1px 0 rgb(28, 39, 51),
+    1px 0px 0 rgb(28, 39, 51),
+    0px -1px 0 rgb(28, 39, 51),
+    -1px 0px 0 rgb(28, 39, 51);
+}
+.newuser-label {
+    font: 1em sans-serif;
+    opacity: 1;
+}
+
+#loading {
+    position:absolute;
+    top:3em;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 0;
+    font-size: 4em;
+    color: #fff;
+    background-color: rgba(189, 195, 199, 0.6);
+}
+
+#loading p {
+    text-align: center;
+    margin: 0.5em;
+}
+
+
+
+@media all and (max-width: 700px) {
+    .container .col_half,
+    .container .col_third {
+        float: none;
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-bottom: 30px;
+    }
+    .container .col_fifth {
+        width: 50%;
+    }
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    ul#mobilenav {
+        display: inline-block;
+    }
+    ul#nav {
+        display: none;
+    }
+    section.module.lila {
+        background-image: none;
+    }
+    .module.lila .lc {
+        display: none;
+    }
+    #wmfbug {
+        display:none;
+    }
+    p.primary, .qbox {
+        font-size: 14pt;
+    }
+    section.module.content {
+        padding: 30px;
+    }
+    section.module.parallax {
+      height: 250px;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: 100%;
+    }
+    section.module.parallax .container {
+        height: 250px;
+        vertical-align: middle;
+        position: relative;
+    }
+    section.module.parallax h1 {
+        font-size: 20pt;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: -100px;
+    }
+    section.module.divider, 
+        section.module.f_1_2, 
+        section.module.f_2_3, 
+        section.module.f_3_2,
+        section.module.f_3_11, 
+        section.module.f_4_2 {
+        background-image: none;
+        background-color: #ccc;
+    }
+    section.module.parallax.orion h1 {
+        padding-bottom: 0px;
+        font-size: 18pt;
+        margin-bottom: 0px;
+    }
+    section.module.parallax.orion {
+        height: 130px;
+    }
+    section.module.parallax.orion .container {
+        height: 130px;
+    }
+    section.module.parallax.wmfstaff h1 {
+        padding-bottom: 0px;
+        font-size: 18pt;
+        margin-bottom: 0px;
+    }
+    section.module.parallax.wmfstaff {
+        height: 110px;
+    }
+    section.module.parallax.wmfstaff .container {
+        height: 110px;
+    }
+    section.module.parallax.earthlights h1 {
+        padding-bottom: 0px;
+        font-size: 18pt;
+        margin-bottom: 10px;
+    }
+    section.module.parallax.earthlights {
+        height: 150px;
+    }
+    section.module.parallax.earthlights .container {
+        height: 150px;
+    }
+
+
+    section.module.parallax.editcounter {
+        height: 160px;
+    }
+    section.module.parallax.editcounter .container {
+        height: 160px;
+    }
+
+    #editcounterhow {
+        font-size: 11pt;
+    }
+    #counter {
+        margin-top: -75px;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+    #explaincounter {
+        display:none;
+    }
+    .editcounter p {
+        margin-bottom: 5px;
+    }
+
+}
+
+@media all and (max-width: 1024px) {
+    .droplink { display: none !important; }
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .container .col_half {
+        max-width: 465px;
+    }
+}
