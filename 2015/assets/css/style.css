@@ -376,6 +376,10 @@ em {
     width: 90%;
     margin-bottom: 1.25rem; } }
 
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.3125rem; }
+
 /*
 
 Defaults
