@@ -1438,3 +1438,11 @@ body {
     margin: 0 auto; }
     .get-involved_idea:last-of-type {
       margin-bottom: 6.25rem; } }
+
+/* foks wants to make these smaller + padding + line-height */
+body span.image-credit {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  line-height: 1.3rem;
+}
