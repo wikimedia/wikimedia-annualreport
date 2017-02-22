@@ -1,0 +1,32 @@
+/*IE9 Styles*/
+
+
+
+img {
+	width:100%;
+}
+
+.logo #header-logo-img {
+	width:100%;
+}
+
+.footer-wiki-logo {
+	width:100%;
+}
+
+.facts-slider-card-contributed-by-person {
+	width:100%;
+}
+
+.financial-page table {
+	margin-top:50px;
+	margin-bottom:80px;
+}
+
+.facts-slider-card-twitter img {
+	width:30px;
+}
+
+.contributors-page .three-column ul li {
+	text-align: center;
+}

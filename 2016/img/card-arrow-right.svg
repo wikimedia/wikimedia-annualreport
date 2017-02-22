@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:figma="http://www.figma.com/figma/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53px" height="50px"
+	 viewBox="0 0 53 50" enable-background="new 0 0 53 50" xml:space="preserve">
+<title>Fact nav</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5982 -2205)" figma:type="canvas">
+	<g id="Fact_nav" figma:type="frame">
+		<g id="Line_2" figma:type="line">
+			<g transform="translate(5982 2230)">
+				<path id="path0_stroke" fill-opacity="0.25" d="M5982.439,2227.439c-0.586,0.586-0.586,1.535,0,2.121l9.546,9.546
+					c0.586,0.586,1.536,0.586,2.121,0c0.586-0.585,0.586-1.535,0-2.121l-8.485-8.485l8.485-8.485c0.586-0.586,0.586-1.536,0-2.121
+					c-0.585-0.586-1.535-0.586-2.121,0L5982.439,2227.439z M6971.561,2229.561c0.586-0.586,0.586-1.535,0-2.121l-9.546-9.546
+					c-0.586-0.586-1.536-0.586-2.122,0c-0.585,0.585-0.585,1.535,0,2.121l8.486,8.485l-8.486,8.485
+					c-0.585,0.586-0.585,1.536,0,2.121c0.586,0.586,1.536,0.586,2.122,0L6971.561,2229.561z M5999.5,2230h971v-3h-987v3H5999.5"/>
+			</g>
+		</g>
+		<g id="Rectangle_4" figma:type="rounded-rectangle">
+			<g transform="translate(6035 2205)">
+				<path id="path1_fill" fill="#EAEAEA" d="M6035,2205h885v50h-885V2205z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
