@@ -518,13 +518,13 @@
             <div class="facts-slider-card clear-fix">
 
               <div class="facts-card-img-wrap clear-fix">
-                <img src="img/fact-cards/donate-card.jpg" alt="large group of people" />
+                <img src="img/fact-cards/contributors-card.jpg" alt="large group of people" />
               </div><!-- End facts-card-img-wrap--> 
 
               <div class="facts-slider-card-inner clear-fix">
 
                 <div class="photo-credit">
-                    <span class="caption"><a href="https://commons.wikimedia.org/wiki/File:Wikimania_2015_-_Group_photo.jpg">Wikimania 2015 participants at the closing ceremony. Photo by EneasMx. </a><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></span>
+                    <span class="caption"><a href="https://commons.wikimedia.org/wiki/Category:Wikimania_2016_group_photograph">Wikimania 2016 group photo. Photo by Niccolò Caranti.</a> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></span>
                 </div>  
 
                 <span class="facts-slider-card-header">We received 5.4 million donations last year</span>
@@ -618,7 +618,8 @@
       $('#card-slider-wrap').flickity({
         pageDots: true,
         cellAlign: 'center',
-        wrapAround: true
+        wrapAround: true,
+        initialIndex: Math.floor(Math.random() * 10)
       });
 
     });

@@ -17,14 +17,14 @@
   <meta name="twitter:site" content="@wikimedia" />
   <meta name="twitter:title" content="One in six people visited another country in 2016" />
   <meta name="twitter:description" content="More than 1.2 billion people increased their knowledge and understanding of new cultures by visiting another country." />
-  <meta name="twitter:image" content="https://annual.wikimedia.org/2016/img/fact-cards/visited-another-countryv2.jpg" />
+  <meta name="twitter:image" content="https://annual.wikimedia.org/2016/img/fact-cards/malasari-birdwatching-card.jpg" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Wikimedia Foundation 2016 Annual Report" />
   <meta property="og:url" content="https://annual.wikimedia.org/2016/fact-8.html" />
   <meta property="og:title" content="One in six people visited another country in 2016" />
   <meta property="og:description" content="More than 1.2 billion people increased their knowledge and understanding of new cultures by visiting another country." />
-  <meta property="og:image" content="https://annual.wikimedia.org/2016/img/fact-cards/visited-another-countryv2.jpg" />
+  <meta property="og:image" content="https://annual.wikimedia.org/2016/img/fact-cards/malasari-birdwatching-card.jpg" />
   <meta property="og:image:width" content="475" /> 
   <meta property="og:image:height" content="475" />
 
@@ -87,7 +87,7 @@
     </header>
 
     <div class="photo-credit text-centered">
-        <span class="caption"><a href="https://commons.wikimedia.org/wiki/File:SeaTac_Airport_protest_against_immigration_ban_02.jpg">SeaTac Airport protest against immigration ban. Sit-in blocking arrival gates until 12 detainees at Sea-Tac are released. Photo by Dennis Bratland.</a><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></span>
+        <span class="caption"><a href="https://commons.wikimedia.org/wiki/File:Malasari_birdwatching.JPG">Birdwatching. Photo by Ade javanese.</a><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></span>
     </div>    
 
     <div class="main-content">
@@ -105,8 +105,12 @@
       <p>This is who we are. And that matters.</p>    
 
       <div class="fact-page-read-more">
-        <p><a href="https://blog.wikimedia.org/2016/07/01/wikimania-sights-sounds/">Read more about Wikimania 2016<span class="read-more-arrow">&rarr;</span></a></p>
+        <p><a href="https://blog.wikimedia.org/2016/07/01/wikimania-sights-sounds/">Read more about our annual global gathering of volunteers<span class="read-more-arrow">&rarr;</span></a></p>
       </div>
+        
+        <div class="caption">
+        <p style="font-size:16px;">Source: In 2016, the United Nations World Tourism Organization reported that annual travel had grown to <a href="http://www.e-unwto.org/doi/pdf/10.18111/9789284418145">approximately 1186 million international tourists</a>. Considered as a fraction of global population at 7.4 billion people this it equates to 16% or 1 in 6 people.</p>
+        </div>
 
       <div class="slider-footer-wrap">
               
@@ -178,13 +182,13 @@
             <div class="facts-slider-card clear-fix">
 
               <div class="facts-card-img-wrap clear-fix">
-                <img src="img/fact-cards/donate-card.jpg" alt="large group of people" />
+                <img src="img/fact-cards/contributors-card.jpg" alt="large group of people" />
               </div><!-- End facts-card-img-wrap--> 
 
               <div class="facts-slider-card-inner clear-fix">
 
                 <div class="photo-credit">
-                    <span class="caption"><a href="https://commons.wikimedia.org/wiki/File:Wikimania_2015_-_Group_photo.jpg">Wikimania 2015 participants at the closing ceremony. Photo by EneasMx. </a><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></span>
+                    <span class="caption"><a href="https://commons.wikimedia.org/wiki/Category:Wikimania_2016_group_photograph">Wikimania 2016 group photo. Photo by Niccolò Caranti.</a> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></span>
                 </div>  
 
                 <span class="facts-slider-card-header">We received 5.4 million donations last year</span>
@@ -502,7 +506,8 @@
       $('#card-slider-wrap').flickity({
         pageDots: true,
         cellAlign: 'center',
-        wrapAround: true
+        wrapAround: true,
+        initialIndex: Math.floor(Math.random() * 10)
       });
 
     });
