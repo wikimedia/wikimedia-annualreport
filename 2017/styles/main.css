@@ -8376,3 +8376,18 @@ svg[class*="hero__shape"] {
     margin-left: 100%;
   }
 }
+
+.screen-reader-text,
+.share-buttons__label {
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  word-wrap: normal !important;
+}
