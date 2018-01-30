@@ -697,16 +697,8 @@ hr {
 ::-moz-placeholder,
 :-ms-input-placeholder,
 ::-ms-input-placeholder,
-::-webkit-input-placeholder {
-  color: #C7C8CA;
-}
-
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-::-ms-input-placeholder,
 ::placeholder {
-  color: #C7C8CA;
+  color: #72777d;
 }
 
 svg {
@@ -1469,7 +1461,7 @@ input[type="submit"]:active {
 
 .nav--main a {
   font-weight: 700;
-  color: #C7C8CA;
+  color: #72777d;
   transition: all 0.3s ease-in-out;
 }
 
@@ -5184,7 +5176,7 @@ svg[class*="hero__shape"] {
 }
 
 .u-text-gray {
-  color: #C7C8CA;
+  color: #72777d;
 }
 
 .u-text-lowercase {
