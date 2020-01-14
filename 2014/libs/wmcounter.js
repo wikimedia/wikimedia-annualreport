@@ -303,20 +303,22 @@ function init() {
     //document.getElementById('donate').innerHTML = donate;
     //document.getElementById('f11').innerHTML = f11;
     //document.getElementById('author').innerHTML = author;
-    
-    window.setTimeout(update, period);
+
+	// T239063#5697413 - make static 
+    update();
 }
 
 function update() {
-   timenow2 = new Date().getTime();
-   if (Math.round(((timenow2-timenow)/1000)+1) % 600 == 0) { window.setTimeout(window.location.reload(), 1100); } //refresh page
-   editnow = editinit + (timenow2-timeinit) * editrate;
-   editnowtext = ""+Math.round(editnow);
+   //timenow2 = new Date().getTime();
+   //if (Math.round(((timenow2-timenow)/1000)+1) % 600 == 0) { window.setTimeout(window.location.reload(), 1100); } //refresh page
+   //editnow = editinit + (timenow2-timeinit) * editrate;
+   // T239063#5697413 - make static
+   editnowtext = ""+Math.round(editinit);
    for(var i=3; i<editnowtext.length; i+=3) {
       editnowtext = editnowtext.replace(spliter_r,'$2'+spliter+'$3');
    }
    document.getElementById('counter').innerHTML = editnowtext;
-   window.setTimeout(update, period);
+   //window.setTimeout(update, period);
 }
 
 function adjustSizes(){
